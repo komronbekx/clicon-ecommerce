@@ -1,5 +1,5 @@
 import React from "react";
-import "./PromoBanners.css";
+import "./Promobanners.css";
 
 function PromoBanners() {
   return (
