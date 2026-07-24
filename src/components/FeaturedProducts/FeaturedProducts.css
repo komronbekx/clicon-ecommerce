@@ -1,0 +1,166 @@
+.featured-section {
+  padding: 40px 0;
+}
+
+.featured-container {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* 1. Chap Banner Stili */
+.featured-banner {
+  width: 312px;
+  flex-shrink: 0;
+  background-color: #f3de6d; /* Banner sariq foni */
+  border-radius: 4px;
+  padding: 32px 24px 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-subtitle {
+  color: #be4600;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.banner-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #191c1f;
+  margin: 8px 0;
+}
+
+.banner-desc {
+  font-size: 14px;
+  color: #475156;
+  margin-bottom: 20px;
+}
+
+.banner-badge-box span {
+  font-size: 12px;
+  color: #191c1f;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.banner-badge {
+  background: #ffffff;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #191c1f;
+  display: inline-block;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.banner-btn {
+  background-color: #fa8232;
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  padding: 14px 0;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.banner-btn:hover {
+  background-color: #e06d1f;
+}
+
+.banner-img {
+  margin-top: 24px;
+  width: 100%;
+  text-align: center;
+}
+
+.banner-img img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 2. O'ng Tomondagi Kontent */
+.featured-content {
+  flex-grow: 1;
+}
+
+.featured-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e4e7e9;
+  padding-bottom: 12px;
+}
+
+.featured-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #191c1f;
+}
+
+.featured-tabs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #5f6c72;
+  cursor: pointer;
+  padding-bottom: 12px;
+  position: relative;
+  font-weight: 500;
+}
+
+.tab-btn.active {
+  color: #191c1f;
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fa8232;
+}
+
+.browse-all {
+  color: #fa8232;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 12px;
+  padding-bottom: 12px; /* Tablar bilan bir xil sathga keltirish uchun */
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 3. 2x4 Grid */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}

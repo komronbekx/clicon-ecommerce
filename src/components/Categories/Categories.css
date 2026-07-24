@@ -1,0 +1,103 @@
+.categories-section {
+  padding: 40px 0;
+}
+
+.categories-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #191c1f;
+  margin-bottom: 32px;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.categories-swiper {
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* Kategoriya Kartochkasi */
+.category-card {
+  border: 1px solid #e4e7e9;
+  border-radius: 6px;
+  padding: 24px 12px;
+  text-align: center;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-card:hover {
+  border-color: #fa8232;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.category-img {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.category-card p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #191c1f;
+  margin: 0;
+}
+
+/* Chap va o'ng tugmalar (Orange circle icons) */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background-color: #fa8232;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 18px;
+  box-shadow: 0px 4px 12px rgba(250, 130, 50, 0.3);
+  transition: background-color 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #de6d21;
+}
+
+.custom-prev {
+  left: -22px; /* Slayder chetiga chiqarib qo'yish */
+}
+
+.custom-next {
+  right: -22px;
+}
+
+/* Tugmalar bosilmaydigan holatda */
+.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

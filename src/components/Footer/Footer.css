@@ -1,0 +1,238 @@
+.footer {
+  background-color: #191c1f; /* Figma'dagi qora-to'q kulrang fon */
+  color: #929fa5;
+  padding-top: 72px;
+  padding-bottom: 24px;
+  font-size: 14px;
+}
+
+/* 5 ustunli Grid joylashuv */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1.1fr 1.3fr;
+  gap: 32px;
+  padding-bottom: 60px;
+}
+
+/* Title stili */
+.footer-title {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+/* 1-ustun: Logo va Aloqa */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #fa8232;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-inner-circle {
+  width: 14px;
+  height: 14px;
+  border: 3.5px solid #191c1f;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.contact-label {
+  font-size: 13px;
+  color: #77878f;
+  margin-bottom: 4px;
+}
+
+.phone-number {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.address {
+  line-height: 1.5;
+  margin-bottom: 12px;
+  color: #929fa5;
+}
+
+.email-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.email-link:hover {
+  color: #fa8232;
+}
+/* Linklar ro'yxati konteyneri */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Har bir li elementiga nisbiy joylashuv va animatsiya beramiz */
+.footer-links li {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+/* Linklarning o'zining stili */
+.footer-links a {
+  color: #929fa5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+/* Sichqoncha ustiga kelganda (Hover bo'lganda):
+   1. Matn oq rangga kiradi
+   2. Chap tomondan zargaldoq/sariq chiziqcha chiqadi
+   3. Matn biroz o'ngga suriladi (chiroyli effekt uchun) */
+.footer-links li:hover a {
+  color: #ffffff;
+}
+
+.footer-links li:hover {
+  transform: translateX(12px); /* O'ngga surilishi */
+}
+
+/* Chap tomondagi sariq chiziqcha (Hover bo'lganda chiqadi) */
+.footer-links li:hover::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 2px;
+  background-color: #fa8232; /* Figmadagi zargaldoq/sariq rang */
+  border-radius: 1px;
+}
+
+/* Browse All Product tugmasi uchun chiziq chiqmasligi uchun */
+.footer-links li:has(.browse-all):hover {
+  transform: none;
+}
+
+.footer-links li:has(.browse-all):hover::before {
+  display: none;
+}
+/* Browse all link */
+.browse-all {
+  color: #e07528 !important;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+/* App Yuklab olish tugmalari */
+.app-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.app-btn {
+  background-color: #303639;
+  border-radius: 3px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.app-btn:hover {
+  background-color: #3b4246;
+}
+
+.app-icon {
+  font-size: 24px;
+}
+
+.apple-icon {
+  font-size: 28px;
+}
+
+.app-btn-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-btn-text span {
+  font-size: 11px;
+  color: #929fa5;
+}
+
+.app-btn-text strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Teglar (Popular Tag) */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-item {
+  border: 1px solid #303639;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 2px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-item:hover {
+  border-color: #ffffff;
+}
+
+/* Oq ramkali aktiv teg (Figma dizayndagidek "Graphics Card") */
+.active-tag {
+  border-color: #ffffff;
+}
+
+/* Pastki chiziq va Copyright */
+.footer-bottom {
+  border-top: 1px solid #303639;
+  padding-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #77878f;
+}
+.footer-loading-item {
+  color: #77878f;
+  font-size: 13px;
+  font-style: italic;
+}

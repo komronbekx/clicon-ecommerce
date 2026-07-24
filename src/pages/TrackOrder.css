@@ -1,0 +1,130 @@
+.track-order-page {
+  padding: 40px 0 80px;
+  background-color: #fff;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+  background-color: #f2f4f5;
+  padding: 16px 0;
+  margin-bottom: 40px;
+  font-size: 13px;
+  color: #5f6c72;
+}
+
+.breadcrumb-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb a {
+  color: #5f6c72;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: #fa8232;
+}
+
+.breadcrumb span.active {
+  color: #2da5f3;
+  font-weight: 500;
+}
+
+/* Form Section */
+.track-order-container {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.track-order-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #191c1f;
+  margin-bottom: 12px;
+}
+
+.track-order-header p {
+  font-size: 14px;
+  color: #5f6c72;
+  line-height: 1.5;
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.track-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 24px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #191c1f;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e4e7e9;
+  border-radius: 2px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #fa8232;
+}
+
+.info-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #5f6c72;
+}
+
+.track-btn {
+  width: flex-start;
+  align-self: flex-start;
+  padding: 14px 32px;
+  background-color: #fa8232;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: background-color 0.2s;
+}
+
+.track-btn:hover {
+  background-color: #de6e21;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+}

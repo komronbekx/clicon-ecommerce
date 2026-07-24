@@ -1,0 +1,261 @@
+/* ===========================
+   HERO
+=========================== */
+
+.hero {
+  margin: 24px 0;
+}
+
+.hero-content {
+  display: flex;
+  gap: 24px;
+}
+
+/* ===========================
+   LEFT SLIDER
+=========================== */
+
+.left-slider {
+  width: 66%;
+}
+
+.left-slider .swiper {
+  border-radius: 8px;
+}
+
+.slide {
+  height: 520px;
+  background: #f2f4f5;
+  border-radius: 8px;
+  padding: 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slide-content {
+  width: 45%;
+}
+
+.slide-tag {
+  display: inline-block;
+  color: #2da5f3;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.slide-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #191c1f;
+  margin-bottom: 20px;
+}
+
+.slide-content p {
+  font-size: 16px;
+  line-height: 28px;
+  color: #5f6c72;
+  margin-bottom: 30px;
+}
+
+.shop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 16px 32px;
+
+  background: #fa8232;
+  color: white;
+
+  border-radius: 4px;
+
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  transition: .3s;
+}
+
+.shop-btn:hover {
+  background: #e96c18;
+}
+
+/* ===========================
+   LEFT IMAGE
+=========================== */
+
+.slide-image {
+  width: 45%;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-image img {
+  width: 340px;
+  height: 340px;
+  object-fit: contain;
+}
+
+.price-circle {
+  position: absolute;
+  top: 20px;
+  right: 0;
+
+  width: 90px;
+  height: 90px;
+
+  background: #2da5f3;
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  box-shadow: 0 8px 18px rgba(45, 165, 243, .3);
+}
+
+/* ===========================
+   RIGHT SIDE
+=========================== */
+
+.hero-right {
+  width: 34%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===========================
+   TOP CARD
+=========================== */
+
+.right-top-card {
+  height: 248px;
+
+  background: #191c1f;
+  color: white;
+
+  border-radius: 8px;
+  padding: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===========================
+   BOTTOM CARD
+=========================== */
+
+.right-bottom-card {
+  height: 248px;
+
+  background: #f2f4f5;
+
+  border-radius: 8px;
+  padding: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===========================
+   CARD CONTENT
+=========================== */
+
+.card-content {
+  width: 55%;
+}
+
+.card-tag {
+  display: inline-block;
+
+  color: #ebc80c;
+
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+.card-content h3 {
+  font-size: 24px;
+  line-height: 32px;
+
+  margin-bottom: 14px;
+}
+
+.card-price {
+  color: #2da5f3;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  margin-bottom: 18px;
+}
+
+.card-content .shop-btn {
+  padding: 12px 22px;
+  font-size: 14px;
+}
+
+/* ===========================
+   CARD IMAGE
+=========================== */
+
+.card-image {
+  width: 40%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-image img {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+
+  transition: .3s;
+}
+
+.card-image img:hover {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   SWIPER PAGINATION
+=========================== */
+
+.swiper-pagination {
+  bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+
+  background: #bfc5ca;
+
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fa8232;
+}

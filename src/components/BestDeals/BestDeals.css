@@ -1,0 +1,296 @@
+/* Sektsiyaning o'zi oddiy margin qoldiradi */
+.deals-section {
+  width: 100%;
+  margin: 24px 0;
+}
+
+/* Container ramkasi tepadagi blok ramkasi bilan aynan bir xil bo'ladi */
+.deals-container {
+  width: 1320px;
+  margin: 0 auto;
+  border: 1px solid #e4e7e9;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  overflow: hidden; /* Chegaradan grid chiqib ketmasligi uchun */
+}
+
+/* Header sozlamalari */
+.deals-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid #e4e7e9;
+  box-sizing: border-box;
+}
+
+.deals-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #191c1f;
+  margin: 0;
+}
+
+.timer {
+  font-size: 14px;
+  color: #191c1f;
+  display: flex;
+  align-items: center;
+}
+
+.timer span {
+  background: #f3de6d;
+  margin-left: 12px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.deals-header a {
+  color: #2da5f3;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Product Grid sozlamalari */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   3. PRODUCT CARD COMMON STYLES
+   ========================================== */
+.product-card {
+  position: relative;
+  border-right: 1px solid #e4e7e9;
+  border-bottom: 1px solid #e4e7e9;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Oxirgi ustundagilarga o'ng chegarani olib tashlash */
+.product-card:nth-child(5n) {
+  border-right: none;
+}
+
+/* ==========================================
+   4. BIG CARD (KATTA KARTOCHKA)
+   ========================================== */
+.big-card {
+  grid-column: span 1;
+  grid-row: span 2; /* 2 qatorni egallaydi */
+  padding: 24px;
+  border-right: 1px solid #e4e7e9;
+}
+
+.big-card .image-box {
+  height: 240px;
+  margin-bottom: 16px;
+}
+
+.big-card h4 {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  color: #191c1f;
+  margin-top: 8px;
+}
+
+/* ==========================================
+   5. IMAGE BOX & BADGES
+   ========================================== */
+.image-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+}
+
+.image-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #efd33d;
+  color: #191c1f;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 2px;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.badge.hot {
+  background: #ee5858;
+  color: #ffffff;
+}
+
+/* ==========================================
+   6. RATING, TEXT & PRICE
+   ========================================== */
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rating {
+  color: #fa8232;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.rating span {
+  color: #77878f;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.product-card h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #191c1f;
+  line-height: 20px;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 2; */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 40px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #5f6c72;
+  line-height: 18px;
+  margin: 6px 0 10px 0;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 3; */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.old {
+  text-decoration: line-through;
+  color: #929fa5;
+}
+
+.price {
+  color: #2da5f3;
+  font-weight: 600;
+}
+
+/* ==========================================
+   7. ACTIONS (BIG CARD BUTTONS)
+   ========================================== */
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.actions button {
+  border: none;
+  outline: none;
+  background: #ffe7d6;
+  color: #fa8232;
+  height: 48px;
+  width: 48px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.actions button:hover {
+  background: #fa8232;
+  color: #ffffff;
+}
+
+.actions .cart {
+  flex: 1;
+  width: auto;
+  background: #fa8232;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  gap: 8px;
+}
+
+.actions .cart:hover {
+  background: #e06d1f;
+}
+
+/* ==========================================
+   8. HOVER ICONS (SMALL CARDS HOVER)
+   ========================================== */
+.hover-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  gap: 8px;
+  z-index: 3;
+}
+
+.hover-icons button {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #ffffff;
+  color: #191c1f;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.hover-icons button:hover {
+  background: #fa8232;
+  color: #ffffff;
+}
+
+/* Kichik kartalarga hover qilinganda ikonkalar ko'rinishi */
+.product-card:not(.big-card):hover .hover-icons {
+  display: flex;
+}
+
+.product-card:not(.big-card):hover .image-box img {
+  opacity: 0.3; /* Hover bo'lganda rasm xiralashadi */
+}
