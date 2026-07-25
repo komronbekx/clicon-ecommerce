@@ -18,7 +18,6 @@ function TrackOrder() {
 
   return (
     <div className="track-order-page">
-      {/* Breadcrumb Navigation */}
       <div className="breadcrumb">
         <div className="container breadcrumb-content">
           <Link to="/">Home</Link>
@@ -29,7 +28,6 @@ function TrackOrder() {
         </div>
       </div>
 
-      {/* Main Track Order Content */}
       <div className="container">
         <div className="track-order-container">
           <div className="track-order-header">

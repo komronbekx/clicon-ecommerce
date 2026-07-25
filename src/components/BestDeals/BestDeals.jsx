@@ -14,7 +14,6 @@ function BestDeals() {
 
   return (
     <section className="deals-section">
-      {/* Shu container ramkani o'ziga oladi va 1320px ga tenglashadi */}
       <div className="container deals-container">
         <div className="deals-header">
           <h2>Best Deals</h2>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { LuArrowRight } from "react-icons/lu";
 import "./Newsletter.css";
 
-// Brend logotiplari ro'yxati (ixtiyoriy brendlar qo'shish uchun)
 const partnerLogos = [
   {
     id: 1,
@@ -45,15 +44,12 @@ function Newsletter() {
   return (
     <section className="newsletter-section">
       <div className="container">
-        {/* Sarlavha va Kichik matn */}
         <h2 className="newsletter-title">Subscribe to our newsletter</h2>
         <p className="newsletter-subtitle">
           Praesent fringilla erat a lacinia egestas. Donec vehicula tempor
           libero et <br />
           cursus. Donec non quam urna. Quisque vitae porta ipsum.
         </p>
-
-        {/* E-mail Kiritish Formasi */}
         <form className="newsletter-form" onSubmit={handleSubmit}>
           <input
             type="email"
@@ -67,7 +63,6 @@ function Newsletter() {
           </button>
         </form>
 
-        {/* Brend Logotiplari */}
         <div className="newsletter-brands">
           {partnerLogos.map((logo) => (
             <div className="brand-item" key={logo.id}>

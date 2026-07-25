@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaSearch, FaTimes } from "react-icons/fa";
 import { getProducts } from "../api/productApi";
-import ProductCard from "../components/ProductCard/ProductCard"; // Mavjud ProductCard
+import ProductCard from "../components/ProductCard/ProductCard";
 import "./ShopPage.css";
 
 function ShopPage() {
@@ -25,7 +25,6 @@ function ShopPage() {
       });
   }, []);
 
-  // Filterlash mantiqi (Qidiruv bo'yicha)
   const filteredProducts = products.filter((p) =>
     (p.title || p.name || "").toLowerCase().includes(searchTerm.toLowerCase()),
   );
@@ -33,9 +32,7 @@ function ShopPage() {
   return (
     <div className="shop-page">
       <div className="container shop-container">
-        {/* ================= CHAP SIDEBAR ================= */}
         <aside className="shop-sidebar">
-          {/* CATEGORY FILTER */}
           <div className="filter-group">
             <h4 className="filter-title">Category</h4>
             <div className="filter-list">
@@ -60,8 +57,6 @@ function ShopPage() {
               ))}
             </div>
           </div>
-
-          {/* PRICE RANGE FILTER */}
           <div className="filter-group">
             <h4 className="filter-title">Price Range</h4>
             <div className="filter-list">
@@ -81,7 +76,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* POPULAR BRANDS */}
           <div className="filter-group">
             <h4 className="filter-title">Popular Brands</h4>
             <div
@@ -106,7 +100,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* POPULAR TAGS */}
           <div className="filter-group">
             <h4 className="filter-title">Popular Tag</h4>
             <div className="tags-grid">
@@ -131,7 +124,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* APPLE WATCH AD BANNER */}
           <div className="sidebar-ad-banner">
             <img
               src="https://png.pngtree.com/png-vector/20230105/ourmid/pngtree-smart-watch-png-image_6552256.png"
@@ -149,9 +141,7 @@ function ShopPage() {
           </div>
         </aside>
 
-        {/* ================= O'NG MAIN CONTENT ================= */}
         <main className="shop-main">
-          {/* SEARCH & SORT BAR */}
           <div className="shop-top-bar">
             <div className="search-input-box">
               <input
@@ -172,7 +162,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* ACTIVE FILTERS BAR */}
           <div className="active-filters-bar">
             <div className="active-pills">
               <span>Active Filters:</span>
@@ -189,7 +178,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* PRODUCTS GRID */}
           {loading ? (
             <div style={{ textAlign: "center", padding: "40px" }}>
               Mahsulotlar yuklanmoqda...

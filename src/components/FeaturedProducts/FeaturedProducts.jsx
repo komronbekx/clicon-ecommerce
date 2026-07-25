@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "../../api/productApi"; // Mahsulotlarni oluvchi API funksiyangiz
-import ProductCard from "../ProductCard/ProductCard"; // Mavjud ProductCard komponentingiz
+import { getProducts } from "../../api/productApi";
+import ProductCard from "../ProductCard/ProductCard";
 import "./FeaturedProducts.css";
 
 const tabs = ["All Product", "Smart Phone", "Laptop", "Headphone", "TV"];
@@ -11,10 +11,8 @@ function FeaturedProducts() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // API'dan mahsulotlarni olamiz
     getProducts()
       .then((data) => {
-        // Ma'lumot tayyorligiga qarab Array yoki Object formatini tekshiramiz
         const list = Array.isArray(data) ? data : data.products || [];
         setProducts(list);
         setLoading(false);
@@ -25,13 +23,11 @@ function FeaturedProducts() {
       });
   }, []);
 
-  // Aynan 8 ta mahsulotni olamiz
   const displayedProducts = products.slice(0, 8);
 
   return (
     <section className="featured-section">
       <div className="container featured-container">
-        {/* CHAP BANNER */}
         <div className="featured-banner">
           <div className="banner-content">
             <span className="banner-subtitle">COMPUTER & ACCESSORIES</span>
@@ -55,9 +51,7 @@ function FeaturedProducts() {
           </div>
         </div>
 
-        {/* O'NG MAHSULOTLAR TESHGICHI (GRID) */}
         <div className="featured-content">
-          {/* Sarlavha va Tablar */}
           <div className="featured-header">
             <h2 className="featured-title">Featured Products</h2>
 
@@ -77,13 +71,11 @@ function FeaturedProducts() {
             </div>
           </div>
 
-          {/* 8 ta Mahsulot Grid */}
           {loading ? (
             <div className="loading-text">Yuklanmoqda...</div>
           ) : (
             <div className="featured-grid">
               {displayedProducts.map((product) => (
-                // O'zingizdagi ProductCard ishlatiladi
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>

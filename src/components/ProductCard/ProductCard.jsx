@@ -1,14 +1,14 @@
 import "./ProductCard.css";
 import { useCart } from "../context/CartContext";
 import { useQuickView } from "../context/QuickViewContext";
-import { useWishlist } from "../context/WishlistContext"; // 1. Import qilamiz
+import { useWishlist } from "../context/WishlistContext"; 
 
 function ProductCard({ product, big }) {
   const { addToCart } = useCart();
   const { openQuickView } = useQuickView();
-  const { toggleWishlist, isInWishlist } = useWishlist(); // 2. Funksiyalarni olamiz
+  const { toggleWishlist, isInWishlist } = useWishlist(); 
 
-  const isLiked = isInWishlist(product?.id); // Mahsulot like bosilganmi?
+  const isLiked = isInWishlist(product?.id); 
 
   const handleAddToCart = () => {
     if (!product) return;
@@ -28,7 +28,6 @@ function ProductCard({ product, big }) {
         <img src={product.images?.[0] || product.image} alt={product.title} />
 
         <div className="hover-icons">
-          {/* LIKE TUGMASI */}
           <button
             type="button"
             onClick={() => toggleWishlist(product)}
@@ -59,7 +58,6 @@ function ProductCard({ product, big }) {
 
       {big && (
         <div className="actions">
-          {/* KATTA KARTADAGI LIKE TUGMASI */}
           <button
             type="button"
             onClick={() => toggleWishlist(product)}

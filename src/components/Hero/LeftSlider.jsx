@@ -2,14 +2,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-// 1. CartContext funksiyasini import qilamiz
-import { useCart } from "../context/CartContext"; // CartContext manzilini to'g'ri ko'rsatganingizga ishonch hosil qiling
+import { useCart } from "../context/CartContext";
 
 function LeftSlider({ products }) {
-  // 2. addToCart funksiyasini olamiz
   const { addToCart } = useCart();
 
-  // 3. Savatga to'g'ri ko'rinishda qo'shish funksiyasi
   const handleAddToCart = (product) => {
     if (!product) return;
 
@@ -17,7 +14,6 @@ function LeftSlider({ products }) {
       id: product.id,
       title: product.title,
       price: product.price,
-      // Sliderdagi rasm formatiga moslaymiz:
       image: product.images?.[0] || product.image,
     });
   };
@@ -43,7 +39,6 @@ function LeftSlider({ products }) {
 
                 <p>{product.description}</p>
 
-                {/* 4. SHOP NOW TUGMASIGA onClick ADD TO CART ULAYMIZ */}
                 <button
                   type="button"
                   className="shop-btn"

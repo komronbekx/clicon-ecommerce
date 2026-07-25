@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // React Router Link qo'shildi
+import { Link } from "react-router-dom"; 
 import "./Header.css";
 import {
   FaBars,
@@ -11,7 +11,6 @@ import {
 } from "react-icons/fa";
 import { IoChevronDown } from "react-icons/io5";
 
-// API chaqiruvingiz
 import { getCategories } from "../../api/productApi";
 
 function CategoryBar() {
@@ -19,7 +18,6 @@ function CategoryBar() {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // API'dan kategoriyalarni olish
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -52,12 +50,10 @@ function CategoryBar() {
     <div className="category-bar">
       <div className="container category-content">
         <div className="category-left">
-          {/* Ochiluvchi Dropdown O'rami */}
           <div
             className="category-dropdown-container"
             onMouseLeave={() => setIsOpen(false)}
           >
-            {/* 1. All Category Tugmasi */}
             <button
               type="button"
               className={`category-btn ${isOpen ? "active" : ""}`}
@@ -70,7 +66,6 @@ function CategoryBar() {
               />
             </button>
 
-            {/* 2. Vertikal Ochiladigan Ro'yxat */}
             {isOpen && (
               <ul className="vertical-category-list">
                 {loading ? (
@@ -93,7 +88,6 @@ function CategoryBar() {
             )}
           </div>
 
-          {/* TRACK ORDER PAGE LINKI */}
           <Link to="/track-order">
             <FaMapMarkerAlt />
             Track Order

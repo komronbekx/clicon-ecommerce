@@ -1,12 +1,11 @@
 .footer {
-  background-color: #191c1f; /* Figma'dagi qora-to'q kulrang fon */
+  background-color: #191c1f;
   color: #929fa5;
   padding-top: 72px;
   padding-bottom: 24px;
   font-size: 14px;
 }
 
-/* 5 ustunli Grid joylashuv */
 .footer-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr 1.1fr 1.3fr;
@@ -14,7 +13,6 @@
   padding-bottom: 60px;
 }
 
-/* Title stili */
 .footer-title {
   color: #ffffff;
   font-size: 14px;
@@ -24,7 +22,6 @@
   text-transform: uppercase;
 }
 
-/* 1-ustun: Logo va Aloqa */
 .footer-logo {
   display: flex;
   align-items: center;
@@ -84,7 +81,6 @@
 .email-link:hover {
   color: #fa8232;
 }
-/* Linklar ro'yxati konteyneri */
 .footer-links {
   list-style: none;
   padding: 0;
@@ -94,13 +90,11 @@
   gap: 10px;
 }
 
-/* Har bir li elementiga nisbiy joylashuv va animatsiya beramiz */
 .footer-links li {
   position: relative;
   transition: transform 0.2s ease;
 }
 
-/* Linklarning o'zining stili */
 .footer-links a {
   color: #929fa5;
   text-decoration: none;
@@ -108,19 +102,14 @@
   display: inline-block;
 }
 
-/* Sichqoncha ustiga kelganda (Hover bo'lganda):
-   1. Matn oq rangga kiradi
-   2. Chap tomondan zargaldoq/sariq chiziqcha chiqadi
-   3. Matn biroz o'ngga suriladi (chiroyli effekt uchun) */
 .footer-links li:hover a {
   color: #ffffff;
 }
 
 .footer-links li:hover {
-  transform: translateX(12px); /* O'ngga surilishi */
+  transform: translateX(12px);
 }
 
-/* Chap tomondagi sariq chiziqcha (Hover bo'lganda chiqadi) */
 .footer-links li:hover::before {
   content: "";
   position: absolute;
@@ -129,11 +118,10 @@
   transform: translateY(-50%);
   width: 6px;
   height: 2px;
-  background-color: #fa8232; /* Figmadagi zargaldoq/sariq rang */
+  background-color: #fa8232;
   border-radius: 1px;
 }
 
-/* Browse All Product tugmasi uchun chiziq chiqmasligi uchun */
 .footer-links li:has(.browse-all):hover {
   transform: none;
 }
@@ -141,7 +129,6 @@
 .footer-links li:has(.browse-all):hover::before {
   display: none;
 }
-/* Browse all link */
 .browse-all {
   color: #e07528 !important;
   font-weight: 600;
@@ -151,7 +138,6 @@
   margin-top: 6px;
 }
 
-/* App Yuklab olish tugmalari */
 .app-buttons {
   display: flex;
   flex-direction: column;
@@ -197,7 +183,6 @@
   font-weight: 600;
 }
 
-/* Teglar (Popular Tag) */
 .tag-cloud {
   display: flex;
   flex-wrap: wrap;
@@ -218,12 +203,10 @@
   border-color: #ffffff;
 }
 
-/* Oq ramkali aktiv teg (Figma dizayndagidek "Graphics Card") */
 .active-tag {
   border-color: #ffffff;
 }
 
-/* Pastki chiziq va Copyright */
 .footer-bottom {
   border-top: 1px solid #303639;
   padding-top: 24px;

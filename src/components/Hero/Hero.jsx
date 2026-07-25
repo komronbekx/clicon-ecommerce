@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Hero.css";
-
 import { getHeroProducts } from "../../api/productApi";
-
 import LeftSlider from "./LeftSlider";
 import RightTopCard from "./RightTopCard";
 import RightBottomCard from "./RightBottomCard";

@@ -21,7 +21,6 @@ function QuickViewModal() {
 
   if (!selectedProduct) return null;
 
-  // Rasmlar massivini tayyorlab olish
   const images =
     selectedProduct.images && selectedProduct.images.length > 0
       ? selectedProduct.images
@@ -50,13 +49,11 @@ function QuickViewModal() {
   return (
     <div className="quickview-overlay" onClick={closeQuickView}>
       <div className="quickview-modal" onClick={(e) => e.stopPropagation()}>
-        {/* Yopish (X) tugmasi */}
         <button className="quickview-close-btn" onClick={closeQuickView}>
           <FaTimes />
         </button>
 
         <div className="quickview-content">
-          {/* CHAP TARAFI: RASMLAR GALLEREYASI */}
           <div className="quickview-gallery">
             <div className="main-image-box">
               <img
@@ -80,7 +77,6 @@ function QuickViewModal() {
             )}
           </div>
 
-          {/* O'NG TARAFI: MAHSULOT MA'LUMOTLARI */}
           <div className="quickview-details">
             <div className="rating-row">
               <span className="stars">★★★★★</span>
@@ -117,7 +113,6 @@ function QuickViewModal() {
 
             <hr className="divider" />
 
-            {/* VARIANTLAR (Color, Size, Memory, Storage) */}
             <div className="options-grid">
               <div className="option-group">
                 <label>Color</label>
@@ -158,7 +153,6 @@ function QuickViewModal() {
               </div>
             </div>
 
-            {/* MIQDOR VA TUGMALAR */}
             <div className="action-row">
               <div className="quantity-counter">
                 <button
@@ -203,7 +197,6 @@ function QuickViewModal() {
               </div>
             </div>
 
-            {/* TO'LOV TIZIMLARI */}
             <div className="checkout-guarantee">
               <p>100% Guarantee Safe Checkout</p>
               <div className="payment-icons">

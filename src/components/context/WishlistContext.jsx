@@ -33,7 +33,6 @@ export function WishlistProvider({ children }) {
     });
   };
 
-  // Wishlist'dan o'chirish
   const removeFromWishlist = (id) => {
     setWishlistItems((prev) => prev.filter((item) => item.id !== id));
   };

@@ -5,7 +5,6 @@ function PromoBanners() {
   return (
     <section className="promo-section">
       <div className="container promo-container">
-        {/* CHAP BANNER (Apple HomePod Mini) */}
         <div className="promo-card light-banner">
           <div className="promo-content">
             <span className="promo-badge blue-badge">INTRODUCING</span>
@@ -25,7 +24,6 @@ function PromoBanners() {
           </div>
 
           <div className="promo-img">
-            {/* Ishonchli, oq fonli Apple HomePod rasmi */}
             <img
               src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/homepod-mini-select-white-202110?wid=800&hei=800&fmt=jpeg&qlt=90&.v=1632925585000"
               alt="Apple Homepod Mini"
@@ -33,7 +31,6 @@ function PromoBanners() {
           </div>
         </div>
 
-        {/* O'NG BANNER (Xiaomi Mi 11 Ultra) */}
         <div className="promo-card dark-banner">
           <div className="promo-content">
             <span className="promo-badge yellow-badge">INTRODUCING NEW</span>
@@ -53,15 +50,12 @@ function PromoBanners() {
           </div>
 
           <div className="promo-img-box">
-            {/* Narx tegi ($590 ko'k doira) */}
             <div className="price-tag">$590</div>
 
-            {/* Ishonchli Telefon rasmi */}
             <img
               src="https://images.officialimages.co/products/images/large/xiaomi_mi_11_ultra_black.png"
               alt="Xiaomi Mi 11 Ultra"
               onError={(e) => {
-                // Agar rasmni yuklab bo'lmasa, zaxira rasm qo'yiladi
                 e.target.src =
                   "https://dummyjson.com/image/250x300/191c1f/ffffff?text=Xiaomi+Mi+11";
               }}

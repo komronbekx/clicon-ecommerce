@@ -15,7 +15,6 @@ function WishlistPage() {
 
   return (
     <div className="wishlist-page">
-      {/* Breadcrumb Navigation */}
       <div className="breadcrumb">
         <div className="container breadcrumb-content">
           <Link to="/">Home</Link>
@@ -24,7 +23,6 @@ function WishlistPage() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="container">
         <div className="wishlist-container">
           <h3 className="wishlist-title">Wishlist</h3>
@@ -41,7 +39,7 @@ function WishlistPage() {
               </thead>
               <tbody>
                 {wishlistItems.map((item) => {
-                  const isStock = item.inStock !== false; // Baza bo'yicha stock tekshiruvi
+                  const isStock = item.inStock !== false;
 
                   return (
                     <tr key={item.id}>
@@ -62,7 +60,6 @@ function WishlistPage() {
                         </div>
                       </td>
 
-                      {/* Price */}
                       <td>
                         <div className="price-box">
                           {item.oldPrice && (
@@ -72,7 +69,6 @@ function WishlistPage() {
                         </div>
                       </td>
 
-                      {/* Stock Status */}
                       <td>
                         <span
                           className={`stock-status ${
@@ -83,7 +79,6 @@ function WishlistPage() {
                         </span>
                       </td>
 
-                      {/* Actions */}
                       <td>
                         <div className="action-box">
                           <button

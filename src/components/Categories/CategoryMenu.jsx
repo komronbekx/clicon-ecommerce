@@ -35,7 +35,6 @@ function CategoryMenu() {
       className="category-dropdown-wrapper"
       onMouseLeave={() => setIsOpen(false)}
     >
-      {/* Tepadagi Kulrang Tugma */}
       <button
         className={`top-category-btn ${isOpen ? "active" : ""}`}
         onClick={() => setIsOpen(!isOpen)}
@@ -46,7 +45,6 @@ function CategoryMenu() {
         <LuChevronDown className={`arrow-icon ${isOpen ? "rotate" : ""}`} />
       </button>
 
-      {/* Vertikal Ochiluvchi Ro'yxat */}
       {isOpen && (
         <ul className="vertical-category-list">
           {loading ? (

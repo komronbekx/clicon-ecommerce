@@ -15,17 +15,14 @@ function Categories() {
   useEffect(() => {
     async function loadCategoriesData() {
       try {
-        // 1. Kategoriyalar ro'yxatini olamiz
         const data = await getCategories();
 
-        // 2. Har bir kategoriya uchun unga tegishli 1-mahsulot rasmini API'dan tortamiz
         const formattedData = await Promise.all(
           data.map(async (item) => {
             const slug = typeof item === "string" ? item : item.slug;
             const name = typeof item === "string" ? item : item.name;
 
             try {
-              // Shu kategoriyadagi 1-mahsulotni olamiz
               const res = await fetch(
                 `https://dummyjson.com/products/category/${slug}?limit=1`,
               );

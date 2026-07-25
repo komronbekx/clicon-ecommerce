@@ -21,7 +21,6 @@
   padding: 10px 0;
 }
 
-/* Kategoriya Kartochkasi */
 .category-card {
   border: 1px solid #e4e7e9;
   border-radius: 6px;
@@ -63,7 +62,6 @@
   margin: 0;
 }
 
-/* Chap va o'ng tugmalar (Orange circle icons) */
 .nav-btn {
   position: absolute;
   top: 50%;
@@ -89,14 +87,13 @@
 }
 
 .custom-prev {
-  left: -22px; /* Slayder chetiga chiqarib qo'yish */
+  left: -22px; 
 }
 
 .custom-next {
   right: -22px;
 }
 
-/* Tugmalar bosilmaydigan holatda */
 .swiper-button-disabled {
   opacity: 0.5;
   cursor: not-allowed;

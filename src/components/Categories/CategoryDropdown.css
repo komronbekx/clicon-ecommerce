@@ -4,7 +4,6 @@
   z-index: 9999;
 }
 
-/* Tugma holati (Och kulrang) */
 .category-toggle-btn {
   background-color: #f2f4f5;
   color: #191c1f;
@@ -21,7 +20,6 @@
   outline: none;
 }
 
-/* Bosilganda (Active state - To'q Sariq) */
 .category-toggle-btn.active {
   background-color: #fa8232 !important;
   color: #ffffff !important;
@@ -40,7 +38,6 @@
   transform: rotate(180deg);
 }
 
-/* Vertikal Ro'yxat */
 .vertical-category-list {
   position: absolute;
   top: 100%;

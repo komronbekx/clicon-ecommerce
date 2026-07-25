@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// LuUserCircle o'rniga LuUser yoki LuCircleUser ishlatiladi
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { HiCalendarDays } from "react-icons/hi2";
 import { AiOutlineMessage } from "react-icons/ai";
@@ -41,7 +40,6 @@ function LatestNews() {
         <div className="news-grid">
           {news.map((item, index) => (
             <div className="news-card" key={item.id}>
-              {/* Rasm */}
               <div className="news-img-box">
                 <img
                   src={fallbackImages[index % fallbackImages.length]}
@@ -49,9 +47,7 @@ function LatestNews() {
                 />
               </div>
 
-              {/* Kontent */}
               <div className="news-content">
-                {/* Meta Ma'lumotlar (Figma ikonkalari bilan) */}
                 <div className="news-meta">
                   <span className="meta-item">
                     <HiOutlineUserCircle className="meta-icon" /> Kristin
@@ -65,11 +61,9 @@ function LatestNews() {
                   </span>
                 </div>
 
-                {/* Sarlavha & Matn */}
                 <h3 className="news-card-title">{item.title}</h3>
                 <p className="news-card-desc">{item.body}</p>
 
-                {/* Read More Tugmasi */}
                 <button className="read-more-btn">
                   READ MORE <LuArrowRight className="btn-icon" />
                 </button>

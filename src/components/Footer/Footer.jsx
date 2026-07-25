@@ -4,7 +4,6 @@ import { FaGooglePlay, FaApple } from "react-icons/fa";
 import { getFooterCategories } from "../../api/footerApi";
 import "./Footer.css";
 
-// API ishlamay qolsa yoki bo'sh kelsa ko'rinadigan zaxira kategoriyalar
 const defaultCategories = [
   "Computer & Laptop",
   "SmartPhone",
@@ -14,7 +13,6 @@ const defaultCategories = [
   "TV & Homes",
 ];
 
-// Zaxira teglar (DummyJSON da tags API yo'qligi uchun)
 const popularTags = [
   "Game",
   "iPhone",
@@ -44,7 +42,6 @@ function Footer() {
     });
   }, []);
 
-  // Matnning birinchi harfini katta qilib beruvchi yordamchi funksiya
   const formatCatName = (item) => {
     if (typeof item === "object" && item !== null) {
       return item.name || item.slug;
@@ -59,7 +56,6 @@ function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer-grid">
-          {/* 1-USTUN: Logo va Aloqa */}
           <div className="footer-col brand-col">
             <div className="footer-logo">
               <span className="logo-icon">
@@ -79,7 +75,6 @@ function Footer() {
             </a>
           </div>
 
-          {/* 2-USTUN: Top Category */}
           <div className="footer-col">
             <h4 className="footer-title">TOP CATEGORY</h4>
             <ul className="footer-links">
@@ -100,7 +95,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* 3-USTUN: Quick Links */}
           <div className="footer-col">
             <h4 className="footer-title">QUICK LINKS</h4>
             <ul className="footer-links">
@@ -128,7 +122,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* 4-USTUN: Download App */}
           <div className="footer-col">
             <h4 className="footer-title">DOWNLOAD APP</h4>
             <div className="app-buttons">
@@ -150,7 +143,6 @@ function Footer() {
             </div>
           </div>
 
-          {/* 5-USTUN: Popular Tag */}
           <div className="footer-col">
             <h4 className="footer-title">POPULAR TAG</h4>
             <div className="tag-cloud">
@@ -166,7 +158,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Pastki qism */}
         <div className="footer-bottom">
           <p>Kinbo - eCommerce Template © 2021. Design by Templatecookie</p>
         </div>

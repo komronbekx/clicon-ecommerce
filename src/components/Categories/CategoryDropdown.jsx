@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCategories } from "../../api/productApi"; // API faylingiz manzilini to'g'ri ko'rsatilganini tekshiring
+import { getCategories } from "../../api/productApi";
 import "./CategoryDropdown.css";
 
 function CategoryDropdown() {
@@ -11,7 +11,7 @@ function CategoryDropdown() {
     async function fetchCategories() {
       try {
         const data = await getCategories();
-        console.log("API'dan kelgan data:", data); // Konsolda tekshirish uchun
+        console.log("API'dan kelgan data:", data);
 
         if (Array.isArray(data)) {
           const formattedCategories = data.map((item) => {
@@ -19,7 +19,6 @@ function CategoryDropdown() {
               typeof item === "string" ? item : item.slug || item.name;
             let name = typeof item === "string" ? item : item.name || item.slug;
 
-            // Bosh harfni katta qilish
             if (name) {
               name =
                 name.charAt(0).toUpperCase() + name.slice(1).replace(/-/g, " ");
@@ -46,7 +45,6 @@ function CategoryDropdown() {
 
   return (
     <div className="category-dropdown-wrapper">
-      {/* 1. All Category Tugmasi */}
       <button
         type="button"
         className={`category-toggle-btn ${isOpen ? "active" : ""}`}
@@ -57,7 +55,6 @@ function CategoryDropdown() {
         <span className={`arrow-icon ${isOpen ? "rotate" : ""}`}>▼</span>
       </button>
 
-      {/* 2. Vertikal Ochiladigan Ro'yxat */}
       {isOpen && (
         <ul className="vertical-category-list">
           {loading ? (

@@ -3,7 +3,6 @@
   background-color: #fff;
 }
 
-/* Breadcrumb Navigation */
 .breadcrumb {
   background-color: #f2f4f5;
   padding: 16px 0;
@@ -33,7 +32,6 @@
   font-weight: 500;
 }
 
-/* Form Section */
 .track-order-container {
   max-width: 920px;
   margin: 0 auto;
@@ -121,10 +119,4 @@
 
 .track-btn:hover {
   background-color: #de6e21;
-}
-
-@media (max-width: 768px) {
-  .form-row {
-    flex-direction: column;
-  }
 }

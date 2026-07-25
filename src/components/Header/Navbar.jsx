@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // ⬅️ Link va useNavigate qo'shildi
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import {
   FaSearch,
@@ -23,9 +23,7 @@ function Navbar() {
 
   const wishlistCount = wishlistItems?.length || 0;
 
-  // Popover va sahifaga o'tishni birga boshqaruvchi funksiya
   const handleWishlistClick = () => {
-    // Mobil/Desktop uchun: agar bosilsa sahifaga o'tadi
     navigate("/wishlist");
     setShowWishlist(false);
   };
@@ -39,7 +37,6 @@ function Navbar() {
           <h2>CLICON</h2>
         </Link>
 
-        {/* Search */}
         <div className="search-box">
           <input type="text" placeholder="Search for anything..." />
           <button type="button">
@@ -47,9 +44,7 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Icons */}
         <div className="navbar-icons">
-          {/* 1. SAVAT TUGMASI VA DROPDOWN */}
           <div
             className="cart-dropdown-wrapper"
             style={{ position: "relative" }}
@@ -68,7 +63,6 @@ function Navbar() {
               )}
             </button>
 
-            {/* SHOPPING CART POPOVER */}
             {showCart && (
               <div className="cart-popover">
                 <div className="cart-header">
@@ -106,7 +100,6 @@ function Navbar() {
                   )}
                 </div>
 
-                {/* Sub-total bo'limi */}
                 <div className="cart-footer">
                   <div className="subtotal-row">
                     <span>Sub-Total:</span>
@@ -132,14 +125,12 @@ function Navbar() {
             )}
           </div>
 
-          {/* 2. WISHLIST TUGMASI VA DROPDOWN */}
           <div
             className="wishlist-icon-wrapper"
             style={{ position: "relative" }}
             onMouseEnter={() => setShowWishlist(true)}
             onMouseLeave={() => setShowWishlist(false)}
           >
-            {/* Wishlist tugmasi (Bosilsa sahifaga o'tadi) */}
             <button
               type="button"
               className="icon-btn"
@@ -153,7 +144,6 @@ function Navbar() {
               )}
             </button>
 
-            {/* Hover bo'lganda ko'rinadigan Wishlist Dropdown Popup */}
             {showWishlist && (
               <div className="cart-popover wishlist-popover">
                 <div
@@ -189,7 +179,6 @@ function Navbar() {
                           </p>
                         </div>
 
-                        {/* Savatga o'tkazish hamda wishlistdan o'chirish */}
                         <button
                           type="button"
                           className="remove-item-btn"
@@ -208,7 +197,6 @@ function Navbar() {
             )}
           </div>
 
-          {/* 3. USER TUGMASI */}
           <button
             type="button"
             className="icon-btn"

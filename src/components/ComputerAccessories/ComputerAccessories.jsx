@@ -20,7 +20,6 @@ function ComputerAccessories() {
     getProducts()
       .then((data) => {
         const list = Array.isArray(data) ? data : data.products || [];
-        // API'dan kelgan mahsulotlardan 8 tasini olamiz
         setProducts(list.slice(0, 8));
         setLoading(false);
       })
@@ -33,9 +32,7 @@ function ComputerAccessories() {
   return (
     <section className="comp-accessories-section">
       <div className="container comp-accessories-container">
-        {/* CHAP TOMON: SARLAVHA, TABLAR VA MAHSULOTLAR GRIDI */}
         <div className="comp-main-content">
-          {/* Header & Tabs */}
           <div className="comp-header">
             <h2 className="comp-title">Computer Accessories</h2>
 
@@ -55,7 +52,6 @@ function ComputerAccessories() {
             </div>
           </div>
 
-          {/* 8 ta Product Grid */}
           {loading ? (
             <div className="loading-text">Yuklanmoqda...</div>
           ) : (
@@ -67,9 +63,7 @@ function ComputerAccessories() {
           )}
         </div>
 
-        {/* O'NG TOMON: 2 TA BANNER */}
         <div className="comp-banners">
-          {/* 1. Sariq Banner (Xiaomi Earbuds) */}
           <div className="side-banner yellow-banner">
             <div className="side-banner-img">
               <img
@@ -96,7 +90,6 @@ function ComputerAccessories() {
             </button>
           </div>
 
-          {/* 2. To'q ko'k Banner (Summer Sales) */}
           <div className="side-banner darkblue-banner">
             <span className="summer-badge">SUMMER SALES</span>
             <h3 className="discount-title">37% DISCOUNT</h3>

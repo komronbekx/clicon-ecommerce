@@ -5,7 +5,7 @@ import "./index.css";
 
 import { CartProvider } from "./components/context/CartContext";
 import { QuickViewProvider } from "./components/context/QuickViewContext";
-import { WishlistProvider } from "./components/context/WishlistContext"; // 1. Import qilamiz
+import { WishlistProvider } from "./components/context/WishlistContext";
 import QuickViewModal from "./components/context/QuickViewModal";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -13,7 +13,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <CartProvider>
       <WishlistProvider>
         {" "}
-        {/* 2. O'raymiz */}
         <QuickViewProvider>
           <App />
           <QuickViewModal />

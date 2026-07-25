@@ -8,7 +8,6 @@
   gap: 24px;
 }
 
-/* SIDEBAR STYLES */
 .shop-sidebar {
   width: 280px;
   flex-shrink: 0;
@@ -33,7 +32,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Radio & Checkbox Lists */
 .filter-list {
   display: flex;
   flex-direction: column;
@@ -54,7 +52,6 @@
   cursor: pointer;
 }
 
-/* Tags */
 .tags-grid {
   display: flex;
   flex-wrap: wrap;
@@ -72,13 +69,13 @@
   transition: all 0.2s;
 }
 
-.tag-btn.active, .tag-btn:hover {
+.tag-btn.active,
+.tag-btn:hover {
   background: #fa8232;
   color: #fff;
   border-color: #fa8232;
 }
 
-/* Apple Watch Ad Banner */
 .sidebar-ad-banner {
   background: #ffeae6;
   border: 1px solid #ffe3dd;
@@ -116,7 +113,6 @@
   cursor: pointer;
 }
 
-/* MAIN CONTENT STYLES */
 .shop-main {
   flex: 1;
 }
@@ -198,7 +194,6 @@
   color: #191c1f;
 }
 
-/* Products Grid */
 .shop-products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -1,7 +1,3 @@
-/* ===========================
-   HERO
-=========================== */
-
 .hero {
   margin: 24px 0;
 }
@@ -10,10 +6,6 @@
   display: flex;
   gap: 24px;
 }
-
-/* ===========================
-   LEFT SLIDER
-=========================== */
 
 .left-slider {
   width: 66%;
@@ -78,16 +70,12 @@
   font-weight: 600;
   text-transform: uppercase;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .shop-btn:hover {
   background: #e96c18;
 }
-
-/* ===========================
-   LEFT IMAGE
-=========================== */
 
 .slide-image {
   width: 45%;
@@ -124,12 +112,8 @@
   font-size: 22px;
   font-weight: 700;
 
-  box-shadow: 0 8px 18px rgba(45, 165, 243, .3);
+  box-shadow: 0 8px 18px rgba(45, 165, 243, 0.3);
 }
-
-/* ===========================
-   RIGHT SIDE
-=========================== */
 
 .hero-right {
   width: 34%;
@@ -138,10 +122,6 @@
   flex-direction: column;
   gap: 24px;
 }
-
-/* ===========================
-   TOP CARD
-=========================== */
 
 .right-top-card {
   height: 248px;
@@ -157,10 +137,6 @@
   align-items: center;
 }
 
-/* ===========================
-   BOTTOM CARD
-=========================== */
-
 .right-bottom-card {
   height: 248px;
 
@@ -173,10 +149,6 @@
   justify-content: space-between;
   align-items: center;
 }
-
-/* ===========================
-   CARD CONTENT
-=========================== */
 
 .card-content {
   width: 55%;
@@ -215,10 +187,6 @@
   font-size: 14px;
 }
 
-/* ===========================
-   CARD IMAGE
-=========================== */
-
 .card-image {
   width: 40%;
 
@@ -232,16 +200,12 @@
   height: 170px;
   object-fit: contain;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .card-image img:hover {
   transform: scale(1.05);
 }
-
-/* ===========================
-   SWIPER PAGINATION
-=========================== */
 
 .swiper-pagination {
   bottom: 20px !important;
