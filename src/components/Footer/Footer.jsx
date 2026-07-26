@@ -88,7 +88,7 @@ function Footer() {
                 </li>
               ))}
               <li>
-                <a href="#all" className="browse-all">
+                <a href="/shop" className="browse-all">
                   Browse All Product <LuArrowRight />
                 </a>
               </li>
@@ -99,25 +99,25 @@ function Footer() {
             <h4 className="footer-title">QUICK LINKS</h4>
             <ul className="footer-links">
               <li>
-                <a href="#shop">Shop Product</a>
+                <a href="#/shop">Shop Product</a>
               </li>
               <li>
-                <a href="#cart">Shoping Cart</a>
+                <a href="/cart">Shoping Cart</a>
               </li>
               <li>
-                <a href="#wishlist">Wishlist</a>
+                <a href="/wishlist">Wishlist</a>
               </li>
               <li>
-                <a href="#compare">Compare</a>
+                <a href="/coming-soon">Compare</a>
               </li>
               <li>
-                <a href="#track">Track Order</a>
+                <a href="/track-order">Track Order</a>
               </li>
               <li>
-                <a href="#help">Customer Help</a>
+                <a href="/coming-soon">Customer Help</a>
               </li>
               <li>
-                <a href="#about">About Us</a>
+                <a href="/coming-soon">About Us</a>
               </li>
             </ul>
           </div>
