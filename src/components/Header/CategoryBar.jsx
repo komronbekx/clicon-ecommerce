@@ -90,17 +90,17 @@ function CategoryBar() {
             Track Order
           </Link>
 
-          <Link to="/compare">
+          <Link to="/coming-soon">
             <FaRandom />
             Compare
           </Link>
 
-          <Link to="/support">
+          <Link to="/coming-soon">
             <FaHeadset />
             Customer Support
           </Link>
 
-          <Link to="/help">
+          <Link to="/coming-soon">
             <FaInfoCircle />
             Need Help
           </Link>

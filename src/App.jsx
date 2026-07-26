@@ -9,6 +9,7 @@ import TrackOrder from "./pages/TrackOrder";
 import WishlistPage from "./pages/WishlistPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import BuildingPage from "./pages/BuildingPage";
 
 function App() {
   return (
@@ -19,10 +20,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<ShopPage />} />
-        <Route path="/track-order" element={<TrackOrder />} />
+        <Route path="/track-order" element={<TrackOrder />} />  
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/coming-soon" element={<BuildingPage />} />
       </Routes>
       <Footer />
     </Router>
