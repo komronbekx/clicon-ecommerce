@@ -37,8 +37,6 @@ function QuickViewModal() {
     "2020 Apple MacBook Pro with Apple M1 Chip";
 
 const handleAddToCart = () => {
-  // 1-argument: mahsulot ob'ekti
-  // 2-argument: tanlangan miqdor (quantity)
   addToCart(
     {
       id: selectedProduct.id,
@@ -46,7 +44,7 @@ const handleAddToCart = () => {
       price: productPrice,
       image: images[0],
     },
-    quantity, // 👈 2-argument qilib yuboriladi
+    quantity,
   );
 };
 

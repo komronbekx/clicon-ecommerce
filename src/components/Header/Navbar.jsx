@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"; // 👈 useEffect va useRef qo'shildi
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import {
@@ -17,7 +17,6 @@ function Navbar() {
   const [showWishlist, setShowWishlist] = useState(false);
   const navigate = useNavigate();
 
-  // Savat konteyneri uchun ref yaratamiz
   const cartRef = useRef(null);
 
   const { cartItems, removeFromCart, subTotal, totalCount } = useCart();
@@ -30,26 +29,21 @@ function Navbar() {
     setShowWishlist(false);
   };
 
-  // Toggle Cart funksiyasi
   const toggleCart = () => {
     setShowCart((prev) => !prev);
     setShowWishlist(false);
   };
 
-  // ✅ SAVATDAN TASHQARI JOY BOSILGANDA MENUNING YOPILISHI
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Agar bosilgan joy cartRef ichida bo'lmasa, menuni yopamiz
       if (cartRef.current && !cartRef.current.contains(event.target)) {
         setShowCart(false);
       }
     };
 
-    // Ekran boylab klik hodisasini tinglaymiz
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      // Komponent o'chganda hodisani tozalaymiz
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
@@ -57,13 +51,11 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="container navbar-content">
-        {/* Logo */}
         <Link to="/" className="logo" style={{ textDecoration: "none" }}>
           <div className="logo-circle">O</div>
           <h2>CLICON</h2>
         </Link>
 
-        {/* Search Box */}
         <div className="search-box">
           <input type="text" placeholder="Search for anything..." />
           <button type="button">
@@ -71,11 +63,9 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Navbar Icons */}
         <div className="navbar-icons">
-          {/* Cart Icon & Popover */}
           <div
-            ref={cartRef} // 👈 Refni shu konteynerga bog'ladik
+            ref={cartRef}
             className="cart-dropdown-wrapper"
             style={{ position: "relative" }}
           >
@@ -135,7 +125,6 @@ function Navbar() {
                     <strong>${subTotal?.toLocaleString()}.00 USD</strong>
                   </div>
 
-                  {/* CHECKOUT NOW */}
                   <button
                     type="button"
                     className="checkout-btn"
@@ -147,7 +136,6 @@ function Navbar() {
                     CHECKOUT NOW <FaArrowRight />
                   </button>
 
-                  {/* VIEW CART */}
                   <button
                     type="button"
                     className="view-cart-btn"
@@ -163,7 +151,6 @@ function Navbar() {
             )}
           </div>
 
-          {/* Wishlist Icon */}
           <div
             className="wishlist-icon-wrapper"
             style={{ position: "relative" }}
@@ -236,7 +223,6 @@ function Navbar() {
             )}
           </div>
 
-          {/* User Profile Icon */}
           <button
             type="button"
             className="icon-btn"

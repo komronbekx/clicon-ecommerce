@@ -230,10 +230,6 @@
   background: #e06d1f;
 }
 
-/* ===========================
-   IMAGE HOVER EFFECT
-=========================== */
-
 .image-box {
   position: relative;
   overflow: hidden;
@@ -243,10 +239,11 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
-/* Black Overlay */
 .image-box::after {
   content: "";
   position: absolute;
@@ -257,7 +254,6 @@
   z-index: 1;
 }
 
-/* Hover Icons */
 .hover-icons {
   position: absolute;
   top: 50%;
@@ -314,10 +310,11 @@
 }
 
 .product-card {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 .product-card:hover {
-  /* box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12); */
   z-index: 5;
 }

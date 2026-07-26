@@ -1,4 +1,3 @@
-import "./ProductCard.css";
 import { useCart } from "../context/CartContext";
 import { useQuickView } from "../context/QuickViewContext";
 import { useWishlist } from "../context/WishlistContext"; 

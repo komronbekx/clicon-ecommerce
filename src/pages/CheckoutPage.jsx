@@ -13,12 +13,11 @@ function CheckoutPage({ cartItems = [] }) {
 
   const [paymentMethod, setPaymentMethod] = useState("card");
 
-  // Sub-total va umumiy summa
   const subTotal = cartItems.reduce(
     (acc, item) => acc + (item.price || 0) * (item.quantity || 1),
     0,
   );
-  const shipping = 0; // Free
+  const shipping = 0;
   const tax = subTotal > 0 ? 61.99 : 0;
   const discount = subTotal > 0 ? 24 : 0;
   const total = subTotal > 0 ? subTotal + tax - discount : 0;
@@ -26,7 +25,7 @@ function CheckoutPage({ cartItems = [] }) {
   const handleSubmitOrder = (e) => {
     e.preventDefault();
     alert("Buyurtmangiz muvaffaqiyatli qabul qilindi!");
-    navigate("/"); // Bosh sahifaga qaytarish
+    navigate("/");
   };
 
   return (
@@ -37,7 +36,6 @@ function CheckoutPage({ cartItems = [] }) {
       </div>
 
       <div className="container checkout-container">
-        {/* CHAP TOMON: Billing Information */}
         <div className="checkout-main">
           <h3 className="section-title">Billing Information</h3>
 
@@ -154,7 +152,6 @@ function CheckoutPage({ cartItems = [] }) {
           </form>
         </div>
 
-        {/* O'NG TOMON: Order Summary */}
         <div className="checkout-sidebar">
           <div className="order-summary-box">
             <h4>Order Summary</h4>

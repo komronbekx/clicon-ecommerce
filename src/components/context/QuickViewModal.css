@@ -12,16 +12,15 @@
   padding: 20px;
 }
 
-/* 1. Modal oynaning o'zi kattalashtirildi (width: 900px -> 1050px) */
 .quickview-modal {
   background: #ffffff;
-  width: 1050px; /* Oyna kengaytirildi */
+  width: 1050px;
   max-width: 95%;
   max-height: 92vh;
   overflow-y: auto;
   border-radius: 8px;
   position: relative;
-  padding: 36px; /* Ichki joy kengaytirildi */
+  padding: 36px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -52,7 +51,6 @@
   gap: 36px;
 }
 
-/* 2. Chap tomondagi rasm gallereyasi */
 .quickview-gallery {
   width: 45%;
 }
@@ -64,7 +62,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 380px; /* Rasm qutisi balandroq qilindi */
+  height: 380px;
   background: #fafafa;
 }
 
@@ -100,7 +98,6 @@
   object-fit: contain;
 }
 
-/* O'ng tomondagi ma'lumotlar */
 .quickview-details {
   width: 55%;
 }
@@ -124,7 +121,7 @@
 }
 
 .modal-product-title {
-  font-size: 22px; /* Sarlavha shrifti kattalashtirildi */
+  font-size: 22px;
   font-weight: 600;
   color: #191c1f;
   margin: 12px 0;
@@ -155,7 +152,7 @@
 }
 
 .current-price {
-  font-size: 26px; /* Narx kattashtirildi */
+  font-size: 26px;
   font-weight: 700;
   color: #2da5f3;
 }
@@ -194,7 +191,6 @@
   font-weight: 500;
 }
 
-/* Select elementlari balandroq va qulay qilindi */
 .option-select {
   width: 100%;
   height: 44px;
@@ -223,15 +219,13 @@
   border-color: #fa8232;
 }
 
-/* 3. TUGMALAR BLOKI VA MIQDOR SANOQCHISI (Kattalashtirildi) */
 .action-row {
   display: flex;
   gap: 12px;
   margin-bottom: 20px;
-  height: 48px; /* Barcha tugmalar balandligi 48px ga o'tkazildi */
+  height: 48px;
 }
 
-/* Miqdor bloki (+ 01 -) */
 .quantity-counter {
   display: flex;
   align-items: center;
@@ -257,7 +251,6 @@
   padding: 0 6px;
 }
 
-/* ADD TO CART TUGMASI */
 .add-to-cart-btn {
   flex: 1.5;
   background: #fa8232;
@@ -279,7 +272,6 @@
   background: #e07122;
 }
 
-/* BUY NOW TUGMASI */
 .buy-now-btn {
   flex: 1;
   background: white;

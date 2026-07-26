@@ -42,7 +42,6 @@ function ShopPage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Filter state-lari
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedPriceRange, setSelectedPriceRange] = useState("All Price");
@@ -63,7 +62,6 @@ function ShopPage() {
       });
   }, []);
 
-  // Brend chekboqsini bosganda state update
   const handleBrandChange = (brand) => {
     if (selectedBrands.includes(brand)) {
       setSelectedBrands(selectedBrands.filter((b) => b !== brand));
@@ -72,7 +70,6 @@ function ShopPage() {
     }
   };
 
-  // Barcha filterlarni bittada tozalash
   const clearAllFilters = () => {
     setSelectedCategory("");
     setSelectedPriceRange("All Price");
@@ -81,7 +78,6 @@ function ShopPage() {
     setSearchTerm("");
   };
 
-  // Kamida 1 ta filter tanlanganini tekshirish
   const hasActiveFilters = useMemo(() => {
     return (
       selectedCategory !== "" ||
@@ -98,7 +94,6 @@ function ShopPage() {
     searchTerm,
   ]);
 
-  // BARCHA FILTERLAR MANTIQLIY BURLASHISHI
   const filteredProducts = useMemo(() => {
     return products
       .filter((p) => {
@@ -108,25 +103,21 @@ function ShopPage() {
         const price = p.price || 0;
         const tags = p.tags || p.tag || [];
 
-        // 1. Qidiruv
         if (searchTerm && !title.includes(searchTerm.toLowerCase()))
           return false;
 
-        // 2. Kategoriya
         if (
           selectedCategory &&
           category.toLowerCase() !== selectedCategory.toLowerCase()
         )
           return false;
 
-        // 3. Narx Diapazoni
         const priceConfig = PRICE_RANGES.find(
           (r) => r.label === selectedPriceRange,
         );
         if (priceConfig && (price < priceConfig.min || price > priceConfig.max))
           return false;
 
-        // 4. Brendlar (agar tanlangan bo'lsa)
         if (
           selectedBrands.length > 0 &&
           !selectedBrands.some((b) =>
@@ -136,7 +127,6 @@ function ShopPage() {
           return false;
         }
 
-        // 5. Teglar (agar tanlangan bo'lsa)
         if (selectedTag) {
           const tagMatch = Array.isArray(tags)
             ? tags.some((t) => t.toLowerCase() === selectedTag.toLowerCase())
@@ -164,9 +154,7 @@ function ShopPage() {
   return (
     <div className="shop-page">
       <div className="container shop-container">
-        {/* ================= SIDEBAR ================= */}
         <aside className="shop-sidebar">
-          {/* CATEGORY */}
           <div className="filter-group">
             <h4 className="filter-title">Category</h4>
             <div className="filter-list">
@@ -186,7 +174,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* PRICE RANGE */}
           <div className="filter-group">
             <h4 className="filter-title">Price Range</h4>
             <div className="filter-list">
@@ -204,7 +191,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* BRANDS */}
           <div className="filter-group">
             <h4 className="filter-title">Popular Brands</h4>
             <div
@@ -224,7 +210,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* TAGS */}
           <div className="filter-group">
             <h4 className="filter-title">Popular Tag</h4>
             <div className="tags-grid">
@@ -241,7 +226,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* AD BANNER */}
           <div className="sidebar-ad-banner">
             <img
               src="https://png.pngtree.com/png-vector/20230105/ourmid/pngtree-smart-watch-png-image_6552256.png"
@@ -259,9 +243,7 @@ function ShopPage() {
           </div>
         </aside>
 
-        {/* ================= MAIN CONTENT ================= */}
         <main className="shop-main">
-          {/* SEARCH & SORT */}
           <div className="shop-top-bar">
             <div className="search-input-box">
               <input
@@ -285,7 +267,6 @@ function ShopPage() {
             </div>
           </div>
 
-          {/* ACTIVE FILTERS BAR */}
           {hasActiveFilters && (
             <div className="active-filters-bar">
               <div className="active-pills">
@@ -342,7 +323,6 @@ function ShopPage() {
             </div>
           )}
 
-          {/* PRODUCTS GRID */}
           {loading ? (
             <div style={{ textAlign: "center", padding: "40px" }}>
               Mahsulotlar yuklanmoqda...

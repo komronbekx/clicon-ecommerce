@@ -56,7 +56,7 @@ function ComputerAccessories() {
                 </button>
               ))}
 
-              <a href="#browse" className="comp-browse-all">
+              <a href="/shop" className="comp-browse-all">
                 Browse All Product <span>→</span>
               </a>
             </div>

@@ -23,7 +23,7 @@ function BestDeals() {
             <span>16d : 21h : 57m</span>
           </div>
 
-          <a href="#">Browse All Product →</a>
+          <a href="/shop">Browse All Product →</a>
         </div>
 
         <div className="products-grid">

@@ -46,7 +46,6 @@ function FeaturedProducts() {
   return (
     <section className="featured-section">
       <div className="container featured-container">
-        {/* LEFT BANNER */}
         <div className="featured-banner">
           <div className="banner-content">
             <span className="banner-subtitle">COMPUTER & ACCESSORIES</span>
@@ -72,7 +71,6 @@ function FeaturedProducts() {
           </div>
         </div>
 
-        {/* RIGHT CONTENT */}
         <div className="featured-content">
           <div className="featured-header">
             <h2 className="featured-title">Featured Products</h2>
@@ -88,7 +86,7 @@ function FeaturedProducts() {
                 </button>
               ))}
 
-              <a href="/" className="browse-all">
+              <a href="/shop" className="browse-all">
                 Browse All Product →
               </a>
             </div>

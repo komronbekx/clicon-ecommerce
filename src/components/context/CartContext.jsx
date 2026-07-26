@@ -26,7 +26,7 @@ const addToCart = (product, quantity = 1) => {
     if (existingIndex > -1) {
       return prevItems.map((item, index) =>
         index === existingIndex
-          ? { ...item, quantity: item.quantity + qtyToAdd } // 👈 Tanlangan miqdorni qo'shadi
+          ? { ...item, quantity: item.quantity + qtyToAdd }
           : item,
       );
     }
@@ -38,7 +38,7 @@ const addToCart = (product, quantity = 1) => {
         title: product.title || product.name || "Mahsulot",
         price: Number(product.price) || 0,
         image: product.image || product.img || "https://via.placeholder.com/60",
-        quantity: qtyToAdd, // 👈 Boshlang'ich miqdorni belgilaydi
+        quantity: qtyToAdd,
       },
     ];
   });
@@ -48,7 +48,6 @@ const addToCart = (product, quantity = 1) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  // ✅ YANGI: Mahsulot miqdorini o'zgartirish (+ va - tugmalari uchun)
   const updateQuantity = (id, newQty) => {
     if (newQty <= 0) {
       removeFromCart(id);
@@ -74,7 +73,7 @@ const addToCart = (product, quantity = 1) => {
         cartItems,
         addToCart,
         removeFromCart,
-        updateQuantity, // ✅ Uzatish uchun value'ga qo'shildi
+        updateQuantity,
         subTotal,
         totalCount,
       }}

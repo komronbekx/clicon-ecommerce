@@ -39,6 +39,7 @@
   margin-bottom: 20px;
 }
 
+/* FORM STYLES */
 .form-row {
   display: flex;
   gap: 16px;
@@ -81,6 +82,7 @@
   border-color: #2da5f3;
 }
 
+/* PAYMENT METHODS */
 .payment-methods {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -127,6 +129,7 @@
   border-radius: 4px;
 }
 
+/* SIDEBAR / ORDER SUMMARY */
 .checkout-sidebar {
   width: 360px;
 }

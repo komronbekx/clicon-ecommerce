@@ -14,8 +14,7 @@ function CartPage() {
   const navigate = useNavigate();
   const { cartItems, updateQuantity, removeFromCart, subTotal } = useCart();
 
-  // Hisob-kitoblar
-  const shipping = 0; // Bepul yetkazib berish
+  const shipping = 0; 
   const tax = subTotal > 0 ? 61.99 : 0;
   const discount = subTotal > 0 ? 24.0 : 0;
   const total = subTotal > 0 ? subTotal + tax - discount : 0;
@@ -23,7 +22,6 @@ function CartPage() {
   return (
     <div className="cart-page">
       <div className="container">
-        {/* Breadcrumb Navigation */}
         <div className="breadcrumb">
           <Link to="/">Home</Link> &gt;{" "}
           <span className="active">Shopping Cart</span>
@@ -32,7 +30,6 @@ function CartPage() {
         <h2 className="page-title">Shopping Cart</h2>
 
         <div className="cart-layout">
-          {/* CHAP TOMON: Mahsulotlar jadvali */}
           <div className="cart-main-content">
             <div className="cart-table-wrapper">
               <table className="cart-table">
@@ -48,7 +45,6 @@ function CartPage() {
                   {cartItems && cartItems.length > 0 ? (
                     cartItems.map((item) => (
                       <tr key={item.id}>
-                        {/* Product Info */}
                         <td className="product-cell">
                           <button
                             type="button"
@@ -68,12 +64,10 @@ function CartPage() {
                           </span>
                         </td>
 
-                        {/* Price */}
                         <td className="price-cell">
                           ${item.price?.toLocaleString()}
                         </td>
 
-                        {/* Quantity controls */}
                         <td className="quantity-cell">
                           <div className="qty-control">
                             <button
@@ -104,7 +98,6 @@ function CartPage() {
                           </div>
                         </td>
 
-                        {/* Sub-total for item */}
                         <td className="subtotal-cell">
                           $
                           {(
@@ -124,7 +117,6 @@ function CartPage() {
               </table>
             </div>
 
-            {/* Cart Buttons */}
             <div className="cart-actions">
               <button
                 type="button"
@@ -139,9 +131,7 @@ function CartPage() {
             </div>
           </div>
 
-          {/* O'NG TOMON: Totals va Coupon */}
           <div className="cart-sidebar">
-            {/* Card Totals */}
             <div className="summary-card">
               <h3>Card Totals</h3>
               <div className="summary-row">
@@ -176,7 +166,6 @@ function CartPage() {
               </button>
             </div>
 
-            {/* Coupon Code Box */}
             <div className="summary-card coupon-card">
               <h3>Coupon Code</h3>
               <div className="coupon-input-group">
