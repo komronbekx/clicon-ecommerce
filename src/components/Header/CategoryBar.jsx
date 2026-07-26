@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; 
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
+
 import {
   FaBars,
   FaPhoneAlt,
@@ -14,75 +15,71 @@ import { IoChevronDown } from "react-icons/io5";
 import { getCategories } from "../../api/productApi";
 
 function CategoryBar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const dropdownRef = useRef(null);
+
   useEffect(() => {
-    async function fetchCategories() {
+    const fetchCategories = async () => {
       try {
         const data = await getCategories();
-        if (Array.isArray(data)) {
-          const formatted = data.map((item) => {
-            const slug =
-              typeof item === "string" ? item : item.slug || item.name;
-            let name = typeof item === "string" ? item : item.name || item.slug;
-
-            if (name) {
-              name =
-                name.charAt(0).toUpperCase() + name.slice(1).replace(/-/g, " ");
-            }
-            return { name, slug };
-          });
-          setCategories(formatted);
-        }
+        setCategories(data);
       } catch (error) {
-        console.error("Kategoriyalar yuklanmadi:", error);
+        console.error("Kategoriyalarni olishda xatolik:", error);
       } finally {
         setLoading(false);
       }
-    }
+    };
 
     fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
     <div className="category-bar">
       <div className="container category-content">
         <div className="category-left">
-          <div
-            className="category-dropdown-container"
-            onMouseLeave={() => setIsOpen(false)}
-          >
+          <div className="category-dropdown-container" ref={dropdownRef}>
             <button
-              type="button"
               className={`category-btn ${isOpen ? "active" : ""}`}
               onClick={() => setIsOpen(!isOpen)}
             >
+              {" "}
               <FaBars />
               <span>All Category</span>
               <IoChevronDown
-                className={`arrow-icon ${isOpen ? "rotate" : ""}`}
+                className={isOpen ? "arrow-icon rotate" : "arrow-icon"}
               />
             </button>
 
             {isOpen && (
               <ul className="vertical-category-list">
                 {loading ? (
-                  <li className="category-loading">Yuklanmoqda...</li>
-                ) : categories.length > 0 ? (
-                  categories.map((cat, idx) => (
-                    <li key={cat.slug || idx} className="category-item">
+                  <li className="category-item">Loading...</li>
+                ) : (
+                  categories.map((category, index) => (
+                    <li key={category.slug || index} className="category-item">
                       <Link
-                        to={`/shop?category=${cat.slug}`}
+                        to={`/shop?category=${category.slug}`}
                         onClick={() => setIsOpen(false)}
                       >
-                        {cat.name}
+                        {category.name}
                       </Link>
                     </li>
                   ))
-                ) : (
-                  <li className="category-loading">Kategoriya topilmadi</li>
                 )}
               </ul>
             )}

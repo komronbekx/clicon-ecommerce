@@ -114,8 +114,8 @@
 
 .badge {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 12px;
+  left: 12px;
   background: #efd33d;
   color: #191c1f;
   font-size: 12px;
@@ -230,41 +230,94 @@
   background: #e06d1f;
 }
 
+/* ===========================
+   IMAGE HOVER EFFECT
+=========================== */
+
+.image-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Black Overlay */
+.image-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Hover Icons */
 .hover-icons {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-  gap: 8px;
-  z-index: 3;
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+
+  transform: translate(-50%, -40%);
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.3s ease;
 }
 
 .hover-icons button {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border: none;
+  border-radius: 50%;
   background: #ffffff;
   color: #191c1f;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   font-size: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
   transition: all 0.2s ease;
 }
 
 .hover-icons button:hover {
   background: #fa8232;
   color: #ffffff;
+  transform: scale(1.08);
+}
+
+.product-card:not(.big-card):hover .image-box::after {
+  opacity: 1;
 }
 
 .product-card:not(.big-card):hover .hover-icons {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%);
 }
 
 .product-card:not(.big-card):hover .image-box img {
-  opacity: 0.3;
+  opacity: 0.35;
+  transform: scale(1.05);
+}
+
+.product-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-card:hover {
+  /* box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12); */
+  z-index: 5;
 }

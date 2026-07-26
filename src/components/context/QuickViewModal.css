@@ -12,52 +12,60 @@
   padding: 20px;
 }
 
+/* 1. Modal oynaning o'zi kattalashtirildi (width: 900px -> 1050px) */
 .quickview-modal {
   background: #ffffff;
-  width: 900px;
+  width: 1050px; /* Oyna kengaytirildi */
   max-width: 95%;
-  max-height: 90vh;
+  max-height: 92vh;
   overflow-y: auto;
-  border-radius: 6px;
+  border-radius: 8px;
   position: relative;
-  padding: 32px;
+  padding: 36px; /* Ichki joy kengaytirildi */
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .quickview-close-btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 18px;
   background: #f2f4f5;
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #475156;
-  font-size: 16px;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.quickview-close-btn:hover {
+  background: #e4e7e9;
 }
 
 .quickview-content {
   display: flex;
-  gap: 32px;
+  gap: 36px;
 }
 
+/* 2. Chap tomondagi rasm gallereyasi */
 .quickview-gallery {
   width: 45%;
 }
 
 .main-image-box {
   border: 1px solid #e4e7e9;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 320px;
+  height: 380px; /* Rasm qutisi balandroq qilindi */
+  background: #fafafa;
 }
 
 .main-image-box img {
@@ -68,14 +76,14 @@
 
 .thumbnails-wrapper {
   display: flex;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 10px;
+  margin-top: 14px;
   overflow-x: auto;
 }
 
 .thumb-box {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border: 1px solid #e4e7e9;
   border-radius: 4px;
   padding: 4px;
@@ -92,6 +100,7 @@
   object-fit: contain;
 }
 
+/* O'ng tomondagi ma'lumotlar */
 .quickview-details {
   width: 55%;
 }
@@ -100,7 +109,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .stars {
@@ -115,18 +124,18 @@
 }
 
 .modal-product-title {
-  font-size: 18px;
+  font-size: 22px; /* Sarlavha shrifti kattalashtirildi */
   font-weight: 600;
   color: #191c1f;
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 .meta-info {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 13px;
   color: #5f6c72;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .meta-info span {
@@ -141,68 +150,71 @@
 .price-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .current-price {
-  font-size: 22px;
+  font-size: 26px; /* Narx kattashtirildi */
   font-weight: 700;
   color: #2da5f3;
 }
 .old-price {
-  font-size: 15px;
+  font-size: 16px;
   color: #77878f;
   text-decoration: line-through;
 }
 .discount-badge {
   background: #efd33d;
   color: #191c1f;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 2px;
+  padding: 3px 10px;
+  border-radius: 3px;
 }
 
 .divider {
   border: 0;
   border-top: 1px solid #e4e7e9;
-  margin: 16px 0;
+  margin: 18px 0;
 }
 
 .options-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 22px;
 }
 
 .option-group label {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: #191c1f;
   margin-bottom: 6px;
+  font-weight: 500;
 }
 
+/* Select elementlari balandroq va qulay qilindi */
 .option-select {
   width: 100%;
-  height: 38px;
+  height: 44px;
   border: 1px solid #e4e7e9;
-  border-radius: 2px;
-  padding: 0 8px;
-  font-size: 12px;
+  border-radius: 4px;
+  padding: 0 12px;
+  font-size: 13px;
   outline: none;
+  background-color: #ffffff;
 }
 
 .color-dots {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
-  height: 38px;
+  height: 44px;
 }
 .dot {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid transparent;
@@ -211,61 +223,88 @@
   border-color: #fa8232;
 }
 
+/* 3. TUGMALAR BLOKI VA MIQDOR SANOQCHISI (Kattalashtirildi) */
 .action-row {
   display: flex;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin-bottom: 20px;
+  height: 48px; /* Barcha tugmalar balandligi 48px ga o'tkazildi */
 }
 
+/* Miqdor bloki (+ 01 -) */
 .quantity-counter {
   display: flex;
   align-items: center;
   border: 1px solid #e4e7e9;
-  border-radius: 2px;
-  padding: 0 8px;
+  border-radius: 4px;
+  padding: 0 12px;
+  background: #f2f4f5;
 }
 
 .quantity-counter button {
   background: transparent;
   border: none;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  padding: 0 8px;
+  padding: 0 10px;
+  color: #475156;
 }
 
+.quantity-counter span {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0 6px;
+}
+
+/* ADD TO CART TUGMASI */
 .add-to-cart-btn {
-  flex: 1;
+  flex: 1.5;
   background: #fa8232;
   color: white;
   border: none;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  border-radius: 2px;
+  border-radius: 4px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
+  letter-spacing: 0.5px;
+  transition: background 0.2s;
 }
 
+.add-to-cart-btn:hover {
+  background: #e07122;
+}
+
+/* BUY NOW TUGMASI */
 .buy-now-btn {
+  flex: 1;
   background: white;
   color: #fa8232;
   border: 2px solid #fa8232;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  padding: 0 16px;
-  border-radius: 2px;
+  padding: 0 20px;
+  border-radius: 4px;
   cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+
+.buy-now-btn:hover {
+  background: #ffe8d6;
 }
 
 .secondary-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 13px;
   color: #475156;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .text-btn {
@@ -275,23 +314,27 @@
   color: #475156;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  font-size: 13px;
 }
+
 .share-box {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
+
 .share-box button {
   background: transparent;
   border: none;
   cursor: pointer;
   color: #475156;
+  font-size: 14px;
 }
 
 .checkout-guarantee {
   background: #f2f4f5;
-  padding: 10px;
+  padding: 12px;
   border-radius: 4px;
   font-size: 12px;
 }
@@ -299,13 +342,14 @@
 .payment-icons {
   display: flex;
   gap: 8px;
-  margin-top: 6px;
+  margin-top: 8px;
 }
+
 .pay-badge {
   background: white;
-  padding: 2px 8px;
-  border-radius: 2px;
+  padding: 4px 10px;
+  border-radius: 3px;
   font-weight: 700;
-  font-size: 10px;
+  font-size: 11px;
   border: 1px solid #e4e7e9;
 }

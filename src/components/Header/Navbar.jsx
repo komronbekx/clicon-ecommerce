@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react"; // 👈 useEffect va useRef qo'shildi
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import {
@@ -17,8 +17,10 @@ function Navbar() {
   const [showWishlist, setShowWishlist] = useState(false);
   const navigate = useNavigate();
 
-  const { cartItems, removeFromCart, subTotal, totalCount, addToCart } =
-    useCart();
+  // Savat konteyneri uchun ref yaratamiz
+  const cartRef = useRef(null);
+
+  const { cartItems, removeFromCart, subTotal, totalCount } = useCart();
   const { wishlistItems, removeFromWishlist } = useWishlist();
 
   const wishlistCount = wishlistItems?.length || 0;
@@ -27,6 +29,30 @@ function Navbar() {
     navigate("/wishlist");
     setShowWishlist(false);
   };
+
+  // Toggle Cart funksiyasi
+  const toggleCart = () => {
+    setShowCart((prev) => !prev);
+    setShowWishlist(false);
+  };
+
+  // ✅ SAVATDAN TASHQARI JOY BOSILGANDA MENUNING YOPILISHI
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Agar bosilgan joy cartRef ichida bo'lmasa, menuni yopamiz
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        setShowCart(false);
+      }
+    };
+
+    // Ekran boylab klik hodisasini tinglaymiz
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      // Komponent o'chganda hodisani tozalaymiz
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="navbar">
@@ -37,6 +63,7 @@ function Navbar() {
           <h2>CLICON</h2>
         </Link>
 
+        {/* Search Box */}
         <div className="search-box">
           <input type="text" placeholder="Search for anything..." />
           <button type="button">
@@ -44,18 +71,18 @@ function Navbar() {
           </button>
         </div>
 
+        {/* Navbar Icons */}
         <div className="navbar-icons">
+          {/* Cart Icon & Popover */}
           <div
+            ref={cartRef} // 👈 Refni shu konteynerga bog'ladik
             className="cart-dropdown-wrapper"
             style={{ position: "relative" }}
           >
             <button
               type="button"
               className="icon-btn cart-icon-btn"
-              onClick={() => {
-                setShowCart(!showCart);
-                setShowWishlist(false);
-              }}
+              onClick={toggleCart}
             >
               <FaShoppingCart />
               {totalCount > 0 && (
@@ -71,16 +98,18 @@ function Navbar() {
                 </div>
 
                 <div className="cart-items-list">
-                  {cartItems.length > 0 ? (
+                  {cartItems && cartItems.length > 0 ? (
                     cartItems.map((item) => (
                       <div key={item.id} className="cart-item">
                         <img
-                          src={item.image}
-                          alt={item.title}
+                          src={item.image || item.thumbnail}
+                          alt={item.title || item.name}
                           className="cart-item-img"
                         />
                         <div className="cart-item-info">
-                          <p className="cart-item-title">{item.title}</p>
+                          <p className="cart-item-title">
+                            {item.title || item.name}
+                          </p>
                           <p className="cart-item-price">
                             {item.quantity} x{" "}
                             <span>${item.price?.toLocaleString()}</span>
@@ -106,10 +135,19 @@ function Navbar() {
                     <strong>${subTotal?.toLocaleString()}.00 USD</strong>
                   </div>
 
-                  <button type="button" className="checkout-btn">
+                  {/* CHECKOUT NOW */}
+                  <button
+                    type="button"
+                    className="checkout-btn"
+                    onClick={() => {
+                      setShowCart(false);
+                      navigate("/checkout");
+                    }}
+                  >
                     CHECKOUT NOW <FaArrowRight />
                   </button>
 
+                  {/* VIEW CART */}
                   <button
                     type="button"
                     className="view-cart-btn"
@@ -125,6 +163,7 @@ function Navbar() {
             )}
           </div>
 
+          {/* Wishlist Icon */}
           <div
             className="wishlist-icon-wrapper"
             style={{ position: "relative" }}
@@ -197,6 +236,7 @@ function Navbar() {
             )}
           </div>
 
+          {/* User Profile Icon */}
           <button
             type="button"
             className="icon-btn"

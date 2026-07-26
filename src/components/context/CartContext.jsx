@@ -12,41 +12,53 @@ export function CartProvider({ children }) {
     localStorage.setItem("cart_items", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product) => {
-    if (!product || !product.id) {
-      console.error("Mahsulotda 'id' topilmadi:", product);
-      return;
+const addToCart = (product, quantity = 1) => {
+  if (!product || !product.id) {
+    console.error("Mahsulotda 'id' topilmadi:", product);
+    return;
+  }
+
+  const qtyToAdd = Number(quantity) || 1;
+
+  setCartItems((prevItems) => {
+    const existingIndex = prevItems.findIndex((item) => item.id === product.id);
+
+    if (existingIndex > -1) {
+      return prevItems.map((item, index) =>
+        index === existingIndex
+          ? { ...item, quantity: item.quantity + qtyToAdd } // 👈 Tanlangan miqdorni qo'shadi
+          : item,
+      );
     }
 
-    setCartItems((prevItems) => {
-      const existingIndex = prevItems.findIndex(
-        (item) => item.id === product.id,
-      );
-
-      if (existingIndex > -1) {
-        return prevItems.map((item, index) =>
-          index === existingIndex
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
-      }
-
-      return [
-        ...prevItems,
-        {
-          id: product.id,
-          title: product.title || product.name || "Mahsulot",
-          price: Number(product.price) || 0,
-          image:
-            product.image || product.img || "https://via.placeholder.com/60",
-          quantity: 1,
-        },
-      ];
-    });
-  };
+    return [
+      ...prevItems,
+      {
+        id: product.id,
+        title: product.title || product.name || "Mahsulot",
+        price: Number(product.price) || 0,
+        image: product.image || product.img || "https://via.placeholder.com/60",
+        quantity: qtyToAdd, // 👈 Boshlang'ich miqdorni belgilaydi
+      },
+    ];
+  });
+};
 
   const removeFromCart = (id) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  // ✅ YANGI: Mahsulot miqdorini o'zgartirish (+ va - tugmalari uchun)
+  const updateQuantity = (id, newQty) => {
+    if (newQty <= 0) {
+      removeFromCart(id);
+      return;
+    }
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: newQty } : item,
+      ),
+    );
   };
 
   const subTotal = cartItems.reduce(
@@ -58,7 +70,14 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, subTotal, totalCount }}
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        updateQuantity, // ✅ Uzatish uchun value'ga qo'shildi
+        subTotal,
+        totalCount,
+      }}
     >
       {children}
     </CartContext.Provider>

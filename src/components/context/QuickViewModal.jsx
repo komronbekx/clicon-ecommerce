@@ -36,15 +36,19 @@ function QuickViewModal() {
     selectedProduct.name ||
     "2020 Apple MacBook Pro with Apple M1 Chip";
 
-  const handleAddToCart = () => {
-    addToCart({
+const handleAddToCart = () => {
+  // 1-argument: mahsulot ob'ekti
+  // 2-argument: tanlangan miqdor (quantity)
+  addToCart(
+    {
       id: selectedProduct.id,
       title: productTitle,
       price: productPrice,
       image: images[0],
-      quantity: quantity,
-    });
-  };
+    },
+    quantity, // 👈 2-argument qilib yuboriladi
+  );
+};
 
   return (
     <div className="quickview-overlay" onClick={closeQuickView}>

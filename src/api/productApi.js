@@ -18,5 +18,5 @@ export const getProductById = async (id) => {
 
 export const getCategories = async () => {
   const res = await api.get("/products/categories");
-  return res.data;
+  return res.data.slice(0, 8);
 };
