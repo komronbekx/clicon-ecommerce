@@ -1,13 +1,18 @@
+import React from "react";
 import { useCart } from "../context/CartContext";
 import { useQuickView } from "../context/QuickViewContext";
-import { useWishlist } from "../context/WishlistContext"; 
+import { useWishlist } from "../context/WishlistContext";
+import { FiShoppingCart } from "react-icons/fi";
+import { IoEyeOutline } from "react-icons/io5";
+
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 function ProductCard({ product, big }) {
   const { addToCart } = useCart();
   const { openQuickView } = useQuickView();
-  const { toggleWishlist, isInWishlist } = useWishlist(); 
+  const { toggleWishlist, isInWishlist } = useWishlist();
 
-  const isLiked = isInWishlist(product?.id); 
+  const isLiked = isInWishlist(product?.id);
 
   const handleAddToCart = () => {
     if (!product) return;
@@ -32,14 +37,15 @@ function ProductCard({ product, big }) {
             onClick={() => toggleWishlist(product)}
             style={{ color: isLiked ? "#ee5858" : "inherit" }}
           >
-            {isLiked ? "❤️" : "♡"}
+            {isLiked ? <FaHeart color="#ee5858" /> : <FaRegHeart />}
           </button>
 
           <button type="button" onClick={handleAddToCart}>
-            🛒
+            <FiShoppingCart />
           </button>
+
           <button type="button" onClick={() => openQuickView(product)}>
-            ◉
+            <IoEyeOutline />
           </button>
         </div>
       </div>
@@ -62,15 +68,15 @@ function ProductCard({ product, big }) {
             onClick={() => toggleWishlist(product)}
             style={{ color: isLiked ? "#ee5858" : "inherit" }}
           >
-            {isLiked ? "❤️" : "♡"}
+            {isLiked ? <FaHeart color="#ee5858" /> : <FaRegHeart />}
           </button>
 
           <button type="button" className="cart" onClick={handleAddToCart}>
-            🛒 ADD TO CART
+            <FiShoppingCart /> ADD TO CART
           </button>
 
           <button type="button" onClick={() => openQuickView(product)}>
-            ◉
+            <IoEyeOutline />
           </button>
         </div>
       )}
