@@ -1,9 +1,3 @@
-/* ================================================================
-   CLICON — Responsive Overrides (Tablet & Mobile)
-   Desktop dizayn o'zgarmaydi. Faqat 1199px dan kichik ekranlar.
-   ================================================================ */
-
-/* ── Umumiy asos ── */
 html {
   scroll-behavior: smooth;
 }
@@ -26,13 +20,7 @@ body {
   box-sizing: border-box;
 }
 
-
-/* ================================================================
-   TABLET — 768px … 1199px
-   ================================================================ */
 @media (max-width: 1199px) {
-
-  /* ── Header ── */
   .navbar {
     padding: 16px 0;
   }
@@ -88,7 +76,6 @@ body {
     flex-shrink: 0;
   }
 
-  /* ── Hero ── */
   .hero {
     margin: 20px 0;
   }
@@ -143,7 +130,6 @@ body {
     height: 130px;
   }
 
-  /* ── Features ── */
   .features {
     height: auto !important;
     flex-wrap: wrap;
@@ -166,7 +152,6 @@ body {
     border-bottom: 1px solid #eeeeee;
   }
 
-  /* ── Best Deals ── */
   .deals-container {
     border-radius: 8px;
   }
@@ -195,13 +180,16 @@ body {
     height: 180px;
   }
 
-  /* ── Categories ── */
   .categories-section {
     padding: 36px 0;
   }
 
-  .custom-prev { left: 4px; }
-  .custom-next { right: 4px; }
+  .custom-prev {
+    left: 4px;
+  }
+  .custom-next {
+    right: 4px;
+  }
 
   .nav-btn {
     width: 38px;
@@ -209,7 +197,6 @@ body {
     font-size: 15px;
   }
 
-  /* ── Featured Products ── */
   .featured-section {
     padding: 36px 0;
   }
@@ -238,7 +225,6 @@ body {
     grid-template-columns: repeat(3, 1fr) !important;
   }
 
-  /* ── Promo Banners ── */
   .promo-container {
     flex-direction: column;
     gap: 16px;
@@ -254,7 +240,6 @@ body {
     font-size: 24px;
   }
 
-  /* ── Computer Accessories ── */
   .comp-accessories-container {
     flex-direction: column;
     gap: 20px;
@@ -275,7 +260,6 @@ body {
     grid-template-columns: repeat(3, 1fr) !important;
   }
 
-  /* ── Macbook Banner ── */
   .macbook-banner {
     border-radius: 10px;
     padding: 40px 36px;
@@ -295,7 +279,6 @@ body {
     gap: 16px;
   }
 
-  /* ── News ── */
   .news-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px;
@@ -305,7 +288,6 @@ body {
     border-radius: 8px;
   }
 
-  /* ── Newsletter ── */
   .newsletter-section {
     padding: 56px 24px;
   }
@@ -314,7 +296,6 @@ body {
     font-size: 28px;
   }
 
-  /* ── Footer ── */
   .footer-grid {
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 28px;
@@ -324,7 +305,6 @@ body {
     grid-column: 1 / -1;
   }
 
-  /* ── Shop ── */
   .shop-container {
     flex-direction: column;
     gap: 20px;
@@ -345,7 +325,6 @@ body {
     grid-template-columns: repeat(3, 1fr) !important;
   }
 
-  /* ── Cart & Checkout ── */
   .cart-layout,
   .checkout-container {
     flex-direction: column;
@@ -357,7 +336,6 @@ body {
     width: 100%;
   }
 
-  /* ── Quick View ── */
   .quickview-content {
     gap: 24px;
   }
@@ -371,12 +349,7 @@ body {
   }
 }
 
-
-/* ================================================================
-   TABLET KICHIK — 768px … 991px
-   ================================================================ */
 @media (max-width: 991px) {
-
   .hero-right {
     flex-direction: column;
     gap: 12px;
@@ -423,10 +396,29 @@ body {
     gap: 12px;
   }
 
-  .featured-tabs,
-  .comp-tabs {
-    flex-wrap: wrap;
-    gap: 12px;
+  .featured-section .featured-tabs,
+  .comp-accessories-section .comp-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+    gap: 4px !important;
+    padding-bottom: 2px;
+  }
+
+  .featured-section .featured-tabs::-webkit-scrollbar,
+  .comp-accessories-section .comp-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .featured-section .tab-btn,
+  .comp-accessories-section .comp-tab-btn,
+  .featured-section .browse-all,
+  .comp-accessories-section .comp-browse-all {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
   }
 
   .comp-banners {
@@ -445,22 +437,34 @@ body {
     flex: 1 1 100%;
   }
 
-  .category-left {
+  .category-bar .category-left {
     overflow-x: auto;
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 16px;
     padding-bottom: 2px;
-    mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12px,
+      #000 calc(100% - 12px),
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 12px,
+      #000 calc(100% - 12px),
+      transparent
+    );
   }
 
-  .category-left::-webkit-scrollbar {
+  .category-bar .category-left::-webkit-scrollbar {
     display: none;
   }
 
-  .category-left a {
+  .category-bar .category-left > a {
     flex-shrink: 0;
     font-size: 13px;
   }
@@ -475,13 +479,7 @@ body {
   }
 }
 
-
-/* ================================================================
-   MOBIL — 480px … 767px
-   ================================================================ */
 @media (max-width: 767px) {
-
-  /* ── TopBar ── */
   .topbar {
     font-size: 13px;
   }
@@ -513,7 +511,6 @@ body {
     border-left: none;
   }
 
-  /* ── Navbar ── */
   .navbar {
     padding: 12px 0;
   }
@@ -552,7 +549,6 @@ body {
     font-size: 14px;
   }
 
-  /* Popover — markazga yaqin */
   .auth-popover {
     position: fixed !important;
     top: auto !important;
@@ -587,55 +583,104 @@ body {
   }
 
   @keyframes slideUp {
-    from { transform: translateY(100%); opacity: 0; }
-    to   { transform: translateY(0);    opacity: 1; }
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
-  /* ── Category Bar ── */
   .category-bar {
     border-bottom: 1px solid #e4e7e9;
+    overflow: hidden;
   }
 
-  .category-content {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 12px 0;
-    gap: 10px;
+  .category-bar .category-content {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    height: auto !important;
+    padding: 12px 0 !important;
+    gap: 12px !important;
   }
 
-  .category-left {
-    mask-image: none;
-    -webkit-mask-image: none;
-  }
-
-  .category-btn {
+  .category-bar .category-left {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
     width: 100% !important;
-    max-width: 100%;
-    border-radius: 6px;
-    justify-content: flex-start;
+    gap: 8px !important;
+    overflow: visible !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  .category-bar .category-dropdown-container {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+
+  .category-bar .category-btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    justify-content: space-between !important;
     padding: 0 16px !important;
   }
 
-  .vertical-category-list {
-    width: 100%;
-    left: 0;
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  .category-bar .category-left > a {
+    flex: 1 1 calc(50% - 4px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 10px 8px !important;
+    background: #f7f9fa !important;
+    border-radius: 8px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #475156 !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
   }
 
-  .category-phone {
-    justify-content: center;
-    padding: 8px 0;
-    font-size: 14px;
+  .category-bar .category-left > a svg {
+    flex-shrink: 0;
+    font-size: 13px;
     color: #1b6392;
-    gap: 8px;
   }
 
-  .category-phone svg {
-    color: #fa8232;
+  .category-bar .vertical-category-list {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    max-height: 60vh;
+    overflow-y: auto;
   }
 
-  /* ── Hero ── */
+  .category-bar .category-phone {
+    justify-content: center !important;
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1b6392 !important;
+    gap: 8px !important;
+    background: #f0f7fc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .category-bar .category-phone svg {
+    color: #fa8232 !important;
+  }
+
   .hero {
     margin: 12px 0;
   }
@@ -670,7 +715,6 @@ body {
     line-height: 1.6;
     margin-bottom: 20px;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -750,7 +794,6 @@ body {
     height: 100px;
   }
 
-  /* ── Features ── */
   .features {
     margin-top: 12px;
     border-radius: 10px;
@@ -783,35 +826,41 @@ body {
     font-size: 9px;
   }
 
-  /* ── Best Deals ── */
   .deals-section {
     margin: 12px 0;
   }
 
-  .deals-header {
-    padding: 12px 16px;
-    align-items: center;
+  .deals-section .deals-header {
+    height: auto !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
   }
 
-  .deals-header h2 {
-    font-size: 16px;
-    width: 100%;
+  .deals-section .deals-header h2 {
+    font-size: 16px !important;
+    width: auto !important;
+    flex: 1 1 auto !important;
   }
 
-  .timer {
-    font-size: 13px;
-    flex: 1;
+  .deals-section .timer {
+    font-size: 12px !important;
+    flex: 1 1 100% !important;
+    order: 2;
   }
 
-  .timer span {
-    margin-left: 8px;
-    padding: 4px 10px;
-    font-size: 12px;
+  .deals-section .timer span {
+    margin-left: 8px !important;
+    padding: 4px 10px !important;
+    font-size: 12px !important;
   }
 
-  .deals-header a {
-    font-size: 13px;
-    white-space: nowrap;
+  .deals-section .deals-header a {
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    order: 1;
   }
 
   .products-grid {
@@ -835,7 +884,6 @@ body {
   .products-grid .product-card h4 {
     font-size: 14px;
     height: auto;
-    -webkit-line-clamp: 2;
   }
 
   .products-grid .image-box {
@@ -858,7 +906,6 @@ body {
     height: 44px;
   }
 
-  /* ── Categories ── */
   .categories-section {
     padding: 28px 0;
   }
@@ -888,7 +935,6 @@ body {
     display: none;
   }
 
-  /* ── Featured ── */
   .featured-section {
     padding: 28px 0;
   }
@@ -909,55 +955,88 @@ body {
     margin-top: 8px;
   }
 
-  .featured-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    border-bottom: none;
-    padding-bottom: 0;
+  .featured-section .featured-container,
+  .comp-accessories-section .comp-accessories-container {
+    min-width: 0 !important;
   }
 
-  .featured-title,
-  .comp-title {
-    font-size: 18px;
-    padding-bottom: 0;
+  .featured-section .featured-content,
+  .comp-accessories-section .comp-main-content {
+    width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
   }
 
-  .featured-tabs,
-  .comp-tabs {
-    width: 100%;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 0;
-    border-bottom: 1px solid #e4e7e9;
-    padding-bottom: 0;
+  .featured-section .featured-header,
+  .comp-accessories-section .comp-header {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 16px !important;
   }
 
-  .featured-tabs::-webkit-scrollbar,
-  .comp-tabs::-webkit-scrollbar {
-    display: none;
+  .featured-section .featured-title,
+  .comp-accessories-section .comp-title {
+    font-size: 18px !important;
+    padding-bottom: 0 !important;
+    width: 100% !important;
   }
 
-  .tab-btn,
-  .comp-tab-btn {
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding: 10px 14px;
-    font-size: 13px;
+  .featured-section .featured-tabs,
+  .comp-accessories-section .comp-tabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    gap: 0 !important;
+    border-bottom: 1px solid #e4e7e9 !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  .tab-btn.active::after,
-  .comp-tab-btn.active::after {
-    bottom: 0;
+  .featured-section .featured-tabs::-webkit-scrollbar,
+  .comp-accessories-section .comp-tabs::-webkit-scrollbar {
+    display: none !important;
   }
 
-  .browse-all,
-  .comp-browse-all {
-    margin-left: 0;
-    padding: 10px 14px;
-    font-size: 13px;
+  .featured-section .tab-btn,
+  .comp-accessories-section .comp-tab-btn {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    padding: 12px 14px !important;
+    font-size: 13px !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    position: relative !important;
+  }
+
+  .featured-section .tab-btn.active::after,
+  .comp-accessories-section .comp-tab-btn.active::after {
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
+
+  .featured-section .browse-all,
+  .comp-accessories-section .comp-browse-all {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    margin-left: 4px !important;
+    padding: 12px 14px !important;
+    font-size: 13px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    color: #fa8232 !important;
+    text-decoration: none !important;
   }
 
   .featured-grid,
@@ -977,7 +1056,6 @@ body {
     height: 180px;
   }
 
-  /* ── Promo ── */
   .promo-section {
     padding: 16px 0;
   }
@@ -1035,15 +1113,8 @@ body {
     right: -4px;
   }
 
-  /* ── Computer Accessories ── */
   .comp-accessories-section {
     padding: 28px 0;
-  }
-
-  .comp-header {
-    flex-direction: column;
-    align-items: flex-start;
-    border-bottom: none;
   }
 
   .side-banner {
@@ -1111,7 +1182,6 @@ body {
     padding: 14px;
   }
 
-  /* ── News ── */
   .news-section {
     padding: 36px 0;
   }
@@ -1142,7 +1212,6 @@ body {
     font-size: 15px;
   }
 
-  /* ── Newsletter ── */
   .newsletter-section {
     padding: 48px 20px;
   }
@@ -1186,7 +1255,6 @@ body {
     height: 20px;
   }
 
-  /* ── Footer ── */
   .footer {
     padding-top: 48px;
   }
@@ -1222,7 +1290,6 @@ body {
     border-radius: 4px;
   }
 
-  /* ── Shop ── */
   .shop-page {
     padding: 12px 0 40px;
   }
@@ -1260,7 +1327,6 @@ body {
     flex-wrap: wrap;
   }
 
-  /* ── Cart ── */
   .cart-page {
     padding: 16px 0 40px;
   }
@@ -1305,7 +1371,6 @@ body {
     border-radius: 8px;
   }
 
-  /* ── Checkout ── */
   .checkout-main {
     border-radius: 8px;
     padding: 20px 16px;
@@ -1338,7 +1403,6 @@ body {
     border-radius: 8px;
   }
 
-  /* ── Wishlist ── */
   .wishlist-container {
     border-radius: 8px;
   }
@@ -1362,7 +1426,6 @@ body {
     font-size: 11px;
   }
 
-  /* ── Track Order ── */
   .track-order-page {
     padding: 20px 0 48px;
   }
@@ -1383,7 +1446,6 @@ body {
     padding: 14px;
   }
 
-  /* ── Building Page ── */
   .building-card {
     margin: 20px 0;
     padding: 40px 20px;
@@ -1400,7 +1462,6 @@ body {
     justify-content: center;
   }
 
-  /* ── Quick View Modal ── */
   .quickview-overlay {
     padding: 0;
     align-items: flex-end;
@@ -1462,12 +1523,7 @@ body {
   }
 }
 
-
-/* ================================================================
-   KICHIK MOBIL — 480px gacha
-   ================================================================ */
 @media (max-width: 480px) {
-
   .slide-content h1 {
     font-size: 22px;
   }
@@ -1535,10 +1591,6 @@ body {
   }
 }
 
-
-/* ================================================================
-   Sensorli ekranlar — touch qulayligi
-   ================================================================ */
 @media (hover: none) and (pointer: coarse) {
   .navbar-icons button,
   .shop-btn,
