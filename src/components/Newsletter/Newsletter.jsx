@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { LuArrowRight } from "react-icons/lu";
 import "./Newsletter.css";
 
@@ -15,18 +15,13 @@ const partnerLogos = [
   },
   {
     id: 3,
-    name: "Philips",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Philips_logo.svg",
+    name: "Sony",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Sony_logo.svg",
   },
   {
     id: 4,
-    name: "Toshiba",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/0/02/Toshiba_logo.svg",
-  },
-  {
-    id: 5,
-    name: "Samsung",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg",
+    name: "Microsoft",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
   },
 ];
 

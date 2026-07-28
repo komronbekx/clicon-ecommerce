@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LuArrowRight } from "react-icons/lu";
 import { FaGooglePlay, FaApple } from "react-icons/fa";
 import { getFooterCategories } from "../../api/footerApi";
