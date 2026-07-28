@@ -1,72 +1,84 @@
-import React, { useEffect, useState } from "react";
-import { HiOutlineUserCircle } from "react-icons/hi";
-import { HiCalendarDays } from "react-icons/hi2";
-import { AiOutlineMessage } from "react-icons/ai";
-import { LuArrowRight } from "react-icons/lu";
-import { getLatestNews } from "../../api/newsApi";
+import { useEffect, useState } from "react";
+import {
+  LuArrowRight,
+  LuUser,
+  LuCalendar,
+  LuMessageSquare,
+} from "react-icons/lu";
 import "./LatestNews.css";
 
-const fallbackImages = [
-  "https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=600&auto=format&fit=crop",
-];
-
 function LatestNews() {
-  const [news, setNews] = useState([]);
+  const [newsList, setNewsList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getLatestNews(3)
+    fetch("https://dummyjson.com/posts?limit=3")
+      .then((res) => res.json())
       .then((data) => {
-        setNews(data);
+        setNewsList(data.posts || []);
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Yangiliklarni yuklashda xatolik:", err);
+        console.error("News yuklashda xatolik:", err);
         setLoading(false);
       });
   }, []);
 
   if (loading) {
-    return <div className="news-loading">Yangiliklar yuklanmoqda...</div>;
+    return (
+      <section className="latest-news-section">
+        <div
+          className="container"
+          style={{ textAlign: "center", padding: "40px 0" }}
+        >
+          Yuklanmoqda...
+        </div>
+      </section>
+    );
   }
 
   return (
-    <section className="news-section">
+    <section className="latest-news-section">
       <div className="container">
-        <h2 className="news-main-title">Latest News</h2>
+        <h2 className="section-title">Latest News</h2>
 
         <div className="news-grid">
-          {news.map((item, index) => (
+          {newsList.map((item) => (
             <div className="news-card" key={item.id}>
-              <div className="news-img-box">
+              <div className="news-image-box">
                 <img
-                  src={fallbackImages[index % fallbackImages.length]}
+                  src={`https://picsum.photos/seed/${item.id}/400/250`}
                   alt={item.title}
                 />
               </div>
 
               <div className="news-content">
                 <div className="news-meta">
-                  <span className="meta-item">
-                    <HiOutlineUserCircle className="meta-icon" /> Kristin
+                  <span>
+                    <LuUser className="meta-icon" /> Admin
                   </span>
-                  <span className="meta-item">
-                    <HiCalendarDays className="meta-icon" /> 19 Dec, 2023
+                  <span>
+                    <LuCalendar className="meta-icon" /> 28-Iyul, 2026
                   </span>
-                  <span className="meta-item">
-                    <AiOutlineMessage className="meta-icon" />{" "}
-                    {item.views || 453}
+                  <span>
+                    <LuMessageSquare className="meta-icon" /> {item.views || 8}
                   </span>
                 </div>
 
-                <h3 className="news-card-title">{item.title}</h3>
-                <p className="news-card-desc">{item.body}</p>
+                {/* Sarlavha */}
+                <h3 className="news-title">{item.title}</h3>
 
-                <button className="read-more-btn">
+                {/* Description (140 ta belgigacha oshirildi) */}
+                <p className="news-desc">
+                  {item.body.length > 200
+                    ? item.body.substring(0, 200) + "..."
+                    : item.body}
+                </p>
+
+                {/* Read More tugmasi */}
+                <a href={`/news/${item.id}`} className="read-more-btn">
                   READ MORE <LuArrowRight className="btn-icon" />
-                </button>
+                </a>
               </div>
             </div>
           ))}
