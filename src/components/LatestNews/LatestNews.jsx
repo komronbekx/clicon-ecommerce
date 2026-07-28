@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // 1. Link import qilindi
 import {
   LuArrowRight,
   LuUser,
@@ -68,17 +69,17 @@ function LatestNews() {
                 {/* Sarlavha */}
                 <h3 className="news-title">{item.title}</h3>
 
-                {/* Description (140 ta belgigacha oshirildi) */}
+                {/* Description */}
                 <p className="news-desc">
                   {item.body.length > 200
                     ? item.body.substring(0, 200) + "..."
                     : item.body}
                 </p>
 
-                {/* Read More tugmasi */}
-                <a href={`/news/${item.id}`} className="read-more-btn">
+                {/* 2. <a> tegi o'rniga <Link to="..."> ishlatildi */}
+                <Link to={`/news/${item.id}`} className="read-more-btn">
                   READ MORE <LuArrowRight className="btn-icon" />
-                </a>
+                </Link>
               </div>
             </div>
           ))}
