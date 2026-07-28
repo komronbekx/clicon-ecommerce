@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Link tegi bilan o'zgartirildi
 import { getProducts } from "../../api/productApi";
 import ProductCard from "../ProductCard/ProductCard";
 import "./ComputerAccessories.css";
@@ -9,12 +10,20 @@ function ComputerAccessories() {
   const [products, setProducts] = useState([]);
   const [activeTab, setActiveTab] = useState("All Product");
   const [loading, setLoading] = useState(true);
+  const [bannerProduct, setBannerProduct] = useState(null); // Banner uchun mahsulot
 
   useEffect(() => {
     getProducts()
       .then((data) => {
         const list = Array.isArray(data) ? data : data.products || [];
         setProducts(list);
+
+        // Beauty kategoriyasidagi 1-mahsulotni banner uchun ajratib olamiz
+        const beautyItem = list.find((item) => item.category === "beauty");
+        if (beautyItem) {
+          setBannerProduct(beautyItem);
+        }
+
         setLoading(false);
       })
       .catch((err) => {
@@ -31,6 +40,12 @@ function ComputerAccessories() {
           )
           .slice(0, 8)
       : products.filter((item) => item.category === activeTab).slice(0, 8);
+
+  // Banner uchun rasm (Backend'dan keladi yoki zaxira rasm olinadi)
+  const bannerImgSrc =
+    bannerProduct?.images?.[0] ||
+    bannerProduct?.thumbnail ||
+    "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png";
 
   return (
     <section className="comp-accessories-section">
@@ -56,9 +71,9 @@ function ComputerAccessories() {
                 </button>
               ))}
 
-              <a href="/shop" className="comp-browse-all">
+              <Link to="/shop" className="comp-browse-all">
                 Browse All Product <span>→</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -76,9 +91,10 @@ function ComputerAccessories() {
         <div className="comp-banners">
           <div className="side-banner yellow-banner">
             <div className="side-banner-img">
+              {/* BACKENDDAN KELGAN DINAMIK RASM */}
               <img
-                src="https://m.media-amazon.com/images/I/5135Y82xSGL._AC_SL1000_.jpg"
-                alt="Beauty"
+                src={bannerImgSrc}
+                alt={bannerProduct?.title || "Beauty Product"}
               />
             </div>
 
@@ -96,12 +112,14 @@ function ComputerAccessories() {
 
             <div className="price-badge-box">
               <span>Only for:</span>
-              <div className="price-tag-badge">$299 USD</div>
+              <div className="price-tag-badge">
+                ${bannerProduct?.price || 299} USD
+              </div>
             </div>
 
-            <button className="side-banner-btn orange-btn">
+            <Link to="/shop" className="side-banner-btn orange-btn">
               SHOP NOW <span>→</span>
-            </button>
+            </Link>
           </div>
 
           <div className="side-banner darkblue-banner">
@@ -113,9 +131,9 @@ function ComputerAccessories() {
               only for <span className="highlight-yellow">Beauty</span> product.
             </p>
 
-            <button className="side-banner-btn blue-btn">
+            <Link to="/shop" className="side-banner-btn blue-btn">
               SHOP NOW <span>→</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
