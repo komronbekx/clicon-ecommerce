@@ -14,7 +14,7 @@
 .building-icon-box {
   width: 70px;
   height: 70px;
-  background-color: #ffe7d6; /* Och orange orqa fon */
+  background-color: #ffe7d6;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@
 
 .building-icon {
   font-size: 32px;
-  color: #fa8232; /* Clicon orange rangi */
+  color: #fa8232;
 }
 
 .building-card h2 {

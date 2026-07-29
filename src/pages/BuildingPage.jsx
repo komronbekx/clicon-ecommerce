@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaTools, FaArrowLeft } from "react-icons/fa";
 import "./BuildingPage.css";

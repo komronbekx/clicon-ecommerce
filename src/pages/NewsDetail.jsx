@@ -16,7 +16,6 @@ function NewsDetail() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // 2. Bu yerdagi setLoading(true) olib tashlandi, chunki u sinxron xatolik berayotgan edi
     fetch(`https://dummyjson.com/posts/${id}`)
       .then((res) => res.json())
       .then((data) => {

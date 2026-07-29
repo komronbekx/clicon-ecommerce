@@ -43,7 +43,6 @@ function WishlistPage() {
 
                   return (
                     <tr key={item.id}>
-                      {/* Products */}
                       <td>
                         <div className="wishlist-product-info">
                           <img
