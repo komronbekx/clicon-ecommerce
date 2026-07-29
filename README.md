@@ -16,10 +16,10 @@
 
 ## Asosiy Imkoniyatlar va Xususiyatlar
 
-* ** Tezkor interfeys:** SPA (Single Page Application) arxitekturasi tufayli sahifalar qayta yuklanmasdan tezkor o'tadi.
-* ** Dinamik Yangiliklar (Latest News):** DummyJSON API orqali yangiliklar va postlarni yuklab olish hamda to'liq ko'rish sahifasi (`/news/:id`).
-* ** Moslashuvchan va Tartibli Dizayn (Responsive):** Har qanday ekranga moslashuvchan cardlar va tugmalar tekisligi (Flexbox/Grid).
-* ** Hamkorlar Bo'limi (Partner Logos):** Mashhur brendlarning barqaror SVG logotiplari bilan integratsiya.
+* **Tezkor interfeys:** SPA (Single Page Application) arxitekturasi tufayli sahifalar qayta yuklanmasdan tezkor o'tadi.
+* **Dinamik Yangiliklar (Latest News):** DummyJSON API orqali yangiliklar va postlarni yuklab olish hamda to'liq ko'rish sahifasi (`/news/:id`).
+* **Moslashuvchan va Tartibli Dizayn (Responsive):** Har qanday ekranga moslashuvchan cardlar va tugmalar tekisligi (Flexbox/Grid).
+* **Hamkorlar Bo'limi (Partner Logos):** Mashhur brendlarning barqaror SVG logotiplari bilan integratsiya.
 
 ---
 
@@ -29,5 +29,5 @@ Loyihani o'z kompyuteringizda ishga tushirish uchun quyidagi qadamlarni bajaring
 
 1. **Repozitoriyadan nusxa olish (Clone):**
    ```bash
-   git clone [https://github.com/komronbekx/clicon-ecommerce.git](https://github.com/komronbek/clicon-ecommerce.git)
+   git clone https://github.com/komronbek/clicon-ecommerce.git
    cd clicon-ecommerce
