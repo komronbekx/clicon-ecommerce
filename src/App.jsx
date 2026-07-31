@@ -14,6 +14,7 @@ import NewsDetail from "./pages/NewsDetail";
 import "./components/Header/Header.css";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
+import CustomerSupport from "./pages/CustomerSupport";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/news/:id" element={<NewsDetail />} />
         <Route path="/login" element={<LoginPage />} />{" "}
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/customer-support" element={<CustomerSupport />} />
       </Routes>
       <Footer />
     </Router>

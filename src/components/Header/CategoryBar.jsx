@@ -88,7 +88,7 @@ function CategoryBar() {
             Compare
           </Link>
 
-          <Link to="/coming-soon">
+          <Link to="/customer-support">
             <FaHeadset />
             Customer Support
           </Link>
