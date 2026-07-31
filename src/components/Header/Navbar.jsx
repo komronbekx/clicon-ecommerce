@@ -24,6 +24,15 @@ function Navbar() {
 
   const wishlistCount = wishlistItems?.length || 0;
 
+  const handleUserClick = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/profile"); // Tizimga kirgan bo'lsa
+    } else {
+      navigate("/login"); // Tizimga kirmagan bo'lsa
+    }
+  };
+
   const handleWishlistClick = () => {
     navigate("/wishlist");
     setShowWishlist(false);
@@ -64,6 +73,7 @@ function Navbar() {
         </div>
 
         <div className="navbar-icons">
+          {/* CART ICON & DROPDOWN */}
           <div
             ref={cartRef}
             className="cart-dropdown-wrapper"
@@ -151,6 +161,7 @@ function Navbar() {
             )}
           </div>
 
+          {/* WISHLIST ICON & DROPDOWN */}
           <div
             className="wishlist-icon-wrapper"
             style={{ position: "relative" }}
@@ -223,10 +234,12 @@ function Navbar() {
             )}
           </div>
 
+          {/* USER PROFILE ICON -> LOGIN */}
           <button
             type="button"
             className="icon-btn"
-            onClick={() => navigate("/profile")}
+            onClick={handleUserClick}
+            title="Login / Account"
           >
             <FaUser />
           </button>

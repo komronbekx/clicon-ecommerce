@@ -1,0 +1,138 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  background-color: #f2f4f5;
+  padding: 40px 20px;
+}
+
+.profile-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e4e7e9;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e4e7e9;
+  margin-bottom: 24px;
+}
+
+.profile-avatar {
+  font-size: 64px;
+  color: #fa8231;
+}
+
+.profile-header-info h2 {
+  font-size: 20px;
+  color: #191c1f;
+  margin-bottom: 4px;
+}
+
+.profile-header-info p {
+  color: #77878f;
+  font-size: 14px;
+}
+
+.success-alert {
+  background-color: #e6f4ea;
+  color: #1e7e34;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 576px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #191c1f;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border: 1px solid #e4e7e9;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #fa8231;
+}
+
+.profile-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.save-btn {
+  flex: 2;
+  padding: 12px;
+  background-color: #fa8231;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.save-btn:hover {
+  background-color: #e06d1b;
+}
+
+.logout-btn {
+  flex: 1;
+  padding: 12px;
+  background-color: #ee5858;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #d64545;
+}
