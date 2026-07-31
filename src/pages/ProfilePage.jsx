@@ -14,13 +14,11 @@ function ProfilePage() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // LocalStorage'dan registratsiya ma'lumotlarini olamiz
     const savedUser = JSON.parse(localStorage.getItem("registeredUser"));
 
     if (savedUser) {
       setUser(savedUser);
     } else {
-      // Ma'lumot topilmasa loginga qaytaradi
       navigate("/login");
     }
   }, [navigate]);

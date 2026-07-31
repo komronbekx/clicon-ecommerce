@@ -67,14 +67,12 @@ function CustomerSupport() {
 
   return (
     <div className="support-container">
-      {/* Breadcrumb Header */}
       <div className="support-breadcrumb">
         <div className="container">
           <Link to="/">Home</Link> &gt; <span>Customer Support</span>
         </div>
       </div>
 
-      {/* Hero Section */}
       <div className="support-hero">
         <div className="container support-hero-content">
           <div className="hero-text">
@@ -95,7 +93,6 @@ function CustomerSupport() {
         </div>
       </div>
 
-      {/* Assistance Categories */}
       <div className="support-categories container">
         <h2>What can we assist you with today?</h2>
         <div className="categories-grid">
@@ -108,7 +105,6 @@ function CustomerSupport() {
         </div>
       </div>
 
-      {/* Popular Topics */}
       <div className="popular-topics-section">
         <div className="container">
           <h2>Popular Topics</h2>
@@ -131,7 +127,6 @@ function CustomerSupport() {
         </div>
       </div>
 
-      {/* Contact Section */}
       <div className="contact-section container">
         <div className="contact-badge">CONTACT US</div>
         <h2>

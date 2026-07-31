@@ -3,7 +3,6 @@
   color: #191c1f;
 }
 
-/* Breadcrumb */
 .support-breadcrumb {
   background-color: #f2f4f5;
   padding: 14px 0;
@@ -20,7 +19,6 @@
   font-weight: 500;
 }
 
-/* Hero Section */
 .support-hero {
   background-color: #f2f4f5;
   padding: 40px 0 0 0;
@@ -109,7 +107,6 @@
   border-top-right-radius: 12px;
 }
 
-/* Categories Section */
 .support-categories {
   padding: 60px 0;
   text-align: center;
@@ -129,10 +126,10 @@
 
 .category-card {
   display: flex;
-  align-items: center;  /* Vertikal o'rtaga joylash */
-  gap: 12px;            /* Ikonka va matn orasidagi masofa */
-  padding: 16px 20px;   /* Balandlikni ixcham tutish uchun padding */
-  height: 84px;         /* Balandligini aniq belgilaymiz */
+  align-items: center;  
+  gap: 12px;            
+  padding: 16px 20px;   
+  height: 84px;         
   background-color: #ffffff;
   border: 1px solid #e4e7e9;
   border-radius: 4px;
@@ -157,7 +154,6 @@
   font-size: 14px;
 }
 
-/* Popular Topics */
 .popular-topics-section {
   background-color: #ffffff;
   border-top: 1px solid #e4e7e9;
@@ -200,7 +196,6 @@
   font-weight: 600;
 }
 
-/* Contact Section */
 .contact-section {
   padding: 60px 0 80px 0;
   text-align: center;

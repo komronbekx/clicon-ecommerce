@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash, FaArrowRight } from "react-icons/fa";
 import "./LoginPage.css";
 
 function LoginPage() {
-  const [isSignIn, setIsSignIn] = useState(false); // Defolt registratsiyadan boshlanadi
+  const [isSignIn, setIsSignIn] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -24,7 +24,6 @@ function LoginPage() {
     e.preventDefault();
 
     if (isSignIn) {
-      // LOGIN QILISH MANTIQLARI
       const savedUser = JSON.parse(localStorage.getItem("registeredUser"));
 
       if (
@@ -38,10 +37,8 @@ function LoginPage() {
         alert("Email yoki parol xato! Yoki siz hali ro'yxatdan o'tmagansiz.");
       }
     } else {
-      // REGISTER QILISH MANTIQLARI
-      // Kiritilgan barcha ma'lumotlarni saqlaymiz:
       localStorage.setItem("registeredUser", JSON.stringify(formData));
-      localStorage.setItem("token", "logged-in-token"); // Avtomatik login qilamiz
+      localStorage.setItem("token", "logged-in-token"); 
 
       alert("Ro'yxatdan muvaffaqiyatli o'tdingiz!");
       navigate("/profile");
