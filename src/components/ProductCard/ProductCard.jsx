@@ -72,7 +72,7 @@ function ProductCard({ product, big }) {
           </button>
 
           <button type="button" className="cart" onClick={handleAddToCart}>
-            <FiShoppingCart /> ADD TO CART
+             ADD TO CART
           </button>
 
           <button type="button" onClick={() => openQuickView(product)}>

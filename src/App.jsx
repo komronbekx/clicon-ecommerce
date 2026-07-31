@@ -11,13 +11,17 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import BuildingPage from "./pages/BuildingPage";
 import NewsDetail from "./pages/NewsDetail";
+import "./components/Header/Header.css";
 
 function App() {
   return (
     <Router>
-      <TopBar />
-      <Navbar />
+      <header className="main-header">
+        <TopBar />
+        <Navbar />
+      </header>
       <CategoryBar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<ShopPage />} />

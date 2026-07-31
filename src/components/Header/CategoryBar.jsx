@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
@@ -17,7 +17,6 @@ import { getCategories } from "../../api/productApi";
 function CategoryBar() {
   const [categories, setCategories] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   const dropdownRef = useRef(null);
 
@@ -28,8 +27,6 @@ function CategoryBar() {
         setCategories(data);
       } catch (error) {
         console.error("Kategoriyalarni olishda xatolik:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -67,20 +64,16 @@ function CategoryBar() {
 
             {isOpen && (
               <ul className="vertical-category-list">
-                {loading ? (
-                  <li className="category-item">Loading...</li>
-                ) : (
-                  categories.map((category, index) => (
-                    <li key={category.slug || index} className="category-item">
-                      <Link
-                        to={`/shop?category=${category.slug}`}
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {category.name}
-                      </Link>
-                    </li>
-                  ))
-                )}
+                {categories.map((category, index) => (
+                  <li key={category.slug || index} className="category-item">
+                    <Link
+                      to={`/shop?category=${category.slug}`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {category.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             )}
           </div>

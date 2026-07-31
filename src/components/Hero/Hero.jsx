@@ -21,7 +21,7 @@ function Hero() {
     fetchHero();
   }, []);
 
-  if (products.length === 0) return <h2>Loading...</h2>;
+  if (products.length === 0) return <h2 className="container">Loading...</h2>;
 
   return (
     <section className="hero">
