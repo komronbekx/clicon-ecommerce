@@ -1,40 +1,39 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "../../api/productApi";
 import "./MacbookBanner.css";
-import { useCart } from "../context/CartContext";
+import { useQuickView } from "../context/QuickViewContext"; // 1. Context import qilamiz
 
 function MacbookBanner() {
   const [products, setProducts] = useState([]);
-  const [macbookProduct, setMacbookProduct] = useState(null); // Backend'dan keladigan Macbook
+  const [macbookProduct, setMacbookProduct] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const { addToCart } = useCart();
+  const { openQuickView } = useQuickView(); // 2. Hook'dan openQuickView olamiz
 
-useEffect(() => {
-  // 1. Umumiy 12 ta mahsulotni pastdagi mini-cardlar uchun olamiz
-  getProducts()
-    .then((data) => {
-      const list = Array.isArray(data) ? data : data.products || [];
-      setProducts(list.slice(0, 12));
-      setLoading(false);
-    })
-    .catch((err) => {
-      console.error("Xatolik:", err);
-      setLoading(false);
-    });
+  useEffect(() => {
+    // 12 ta mahsulotni pastdagi 4 ta ustun uchun olamiz
+    getProducts()
+      .then((data) => {
+        const list = Array.isArray(data) ? data : data.products || [];
+        setProducts(list.slice(0, 12));
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Xatolik:", err);
+        setLoading(false);
+      });
 
-  // 2. Banner uchun AYNAN Macbook / Laptop mahsulotini chaqiramiz
-  fetch("https://dummyjson.com/products/search?q=macbook")
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.products && data.products.length > 0) {
-        setMacbookProduct(data.products[0]); // Apple MacBook Pro
-      }
-    })
-    .catch((err) => console.error("Macbook olishda xatolik:", err));
-}, []);
+    // Macbook ma'lumotlarini olish
+    fetch("https://dummyjson.com/products/search?q=macbook")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.products && data.products.length > 0) {
+          setMacbookProduct(data.products[0]);
+        }
+      })
+      .catch((err) => console.error("Macbook olishda xatolik:", err));
+  }, []);
 
-  // Backend'dan kelgan rasmni olish
   const macbookImage =
     macbookProduct?.thumbnail ||
     macbookProduct?.images?.[0] ||
@@ -46,22 +45,14 @@ useEffect(() => {
   const topRated = products.slice(6, 9);
   const newArrival = products.slice(9, 12);
 
+  // 3. Mini-card bosilganda QuickView ochilishi uchun to'g'rilangan komponent:
   const MiniProductCard = ({ item }) => {
-    const handleAddMini = () => {
-      addToCart({
-        id: item?.id,
-        title: item?.title || item?.name || "Product Name",
-        price: item?.price || 1500,
-        image: item?.thumbnail || item?.image || item?.images?.[0],
-      });
-    };
-
     return (
       <div
         className="mini-product-card"
-        onClick={handleAddMini}
+        onClick={() => openQuickView(item)}
         style={{ cursor: "pointer" }}
-        title="Savatga qo'shish uchun bosing"
+        title="Quick View oynasini ochish"
       >
         <div className="mini-card-img">
           <img
@@ -82,16 +73,15 @@ useEffect(() => {
   return (
     <section className="macbook-section">
       <div className="container">
+        {/* TOP BANNER */}
         <div className="macbook-banner">
           <div className="banner-text-side">
             <span className="save-badge">SAVE UP TO $200.00</span>
 
-            {/* Dinamik Nom */}
             <h1 className="macbook-title">
               {macbookProduct?.title || "Macbook Pro"}
             </h1>
 
-            {/* Dinamik Tavsif */}
             <p className="macbook-desc">
               {macbookProduct?.description ||
                 "Apple M1 Max Chip. 32GB Unified Memory, 1TB SSD Storage"}
@@ -100,19 +90,17 @@ useEffect(() => {
             <button
               type="button"
               className="macbook-btn"
-              onClick={() => macbookProduct && addToCart(macbookProduct)}
+              onClick={() => macbookProduct && openQuickView(macbookProduct)}
             >
               SHOP NOW <span>→</span>
             </button>
           </div>
 
           <div className="banner-img-side">
-            {/* Dinamik Narx */}
             <div className="macbook-price-circle">
               ${macbookProduct?.price || 1999}
             </div>
 
-            {/* Dinamik Rasm */}
             <img
               src={macbookImage}
               alt={macbookProduct?.title || "Macbook Pro"}
@@ -121,6 +109,7 @@ useEffect(() => {
           </div>
         </div>
 
+        {/* 4 TA USTUNLI MINI KARTALAR (Rasmda ko'rsatilgan bo'lim) */}
         <div className="mini-products-grid">
           <div className="mini-column">
             <h3 className="column-title">FLASH SALE TODAY</h3>

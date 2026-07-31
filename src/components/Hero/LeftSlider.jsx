@@ -3,20 +3,11 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 import { useCart } from "../context/CartContext";
+import { useQuickView } from "../context/QuickViewContext"; // 1. QuickView import qilamiz
 
 function LeftSlider({ products }) {
   const { addToCart } = useCart();
-
-  const handleAddToCart = (product) => {
-    if (!product) return;
-
-    addToCart({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      image: product.images?.[0] || product.image,
-    });
-  };
+  const { openQuickView } = useQuickView(); // 2. Hook'dan openQuickView funksiyasini olamiz
 
   return (
     <div className="left-slider">
@@ -39,10 +30,11 @@ function LeftSlider({ products }) {
 
                 <p>{product.description}</p>
 
+                {/* 3. onClick orqali QuickView funksiyasini ulash */}
                 <button
                   type="button"
                   className="shop-btn"
-                  onClick={() => handleAddToCart(product)}
+                  onClick={() => openQuickView(product)}
                 >
                   SHOP NOW →
                 </button>
@@ -51,7 +43,10 @@ function LeftSlider({ products }) {
               <div className="slide-image">
                 <div className="price-circle">${product.price}</div>
 
-                <img src={product.images?.[0]} alt={product.title} />
+                <img
+                  src={product.images?.[0] || product.image}
+                  alt={product.title}
+                />
               </div>
             </div>
           </SwiperSlide>

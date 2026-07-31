@@ -124,7 +124,7 @@
   gap: 16px;
 }
 
-.category-card {
+.category1-card {
   display: flex;
   align-items: center;  
   gap: 12px;            
@@ -139,17 +139,17 @@
   box-sizing: border-box;
 }
 
-.category-card:hover {
+.category1-card:hover {
   border-color: #fa8231;
   box-shadow: 0px 6px 16px rgba(250, 130, 49, 0.12);
 }
 
-.category-card .cat-icon {
+.category1-card .cat-icon {
   font-size: 20px;
   color: #fa8231;
 }
 
-.category-card .cat-title {
+.category1-card .cat-title {
   font-weight: 600;
   font-size: 14px;
 }

@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getProducts } from "../../api/productApi";
 import ProductCard from "../ProductCard/ProductCard";
+import { useQuickView } from "../context/QuickViewContext"; // 1. QuickView Context import qilamiz
 import "./FeaturedProducts.css";
 
-const tabs = [
-  "All Product",
-  "Beauty",
-  "Fragrances",
-  "Furniture",
-  "Groceries",
-];
+const tabs = ["All Product", "Beauty", "Fragrances", "Furniture", "Groceries"];
+
 const categoryMap = {
   Beauty: "beauty",
   Fragrances: "fragrances",
@@ -21,6 +17,8 @@ function FeaturedProducts() {
   const [products, setProducts] = useState([]);
   const [activeTab, setActiveTab] = useState("All Product");
   const [loading, setLoading] = useState(true);
+
+  const { openQuickView } = useQuickView(); // 2. Hook funksiyasini olamiz
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -43,9 +41,17 @@ function FeaturedProducts() {
       ? products
       : products.filter((item) => item.category === categoryMap[activeTab]);
 
+  // Bannerdagi SHOP NOW bossa ochiladigan maxsulot
+  const handleBannerShopNow = () => {
+    if (products.length > 0) {
+      openQuickView(products[0]); // Ro'yxatdagi 1-maxsulotni QuickView da ochadi
+    }
+  };
+
   return (
     <section className="featured-section">
       <div className="container featured-container">
+        {/* LEFT BANNER */}
         <div className="featured-banner">
           <div className="banner-content">
             <span className="banner-subtitle">COMPUTER & ACCESSORIES</span>
@@ -56,11 +62,17 @@ function FeaturedProducts() {
 
             <div className="banner-badge-box">
               <span>Offers ends in:</span>
-
               <div className="banner-badge">ENDS OF CHRISTMAS</div>
             </div>
 
-            <button className="banner-btn">SHOP NOW →</button>
+            {/* 3. SHOP NOW tugmasiga onClick beramiz */}
+            <button
+              type="button"
+              className="banner-btn"
+              onClick={handleBannerShopNow}
+            >
+              SHOP NOW →
+            </button>
           </div>
 
           <div className="banner-img">
@@ -71,6 +83,7 @@ function FeaturedProducts() {
           </div>
         </div>
 
+        {/* RIGHT CONTENT */}
         <div className="featured-content">
           <div className="featured-header">
             <h2 className="featured-title">Featured Products</h2>

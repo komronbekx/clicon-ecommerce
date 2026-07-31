@@ -4,7 +4,7 @@ import { useQuickView } from "../context/QuickViewContext";
 import { useWishlist } from "../context/WishlistContext";
 import { FiShoppingCart } from "react-icons/fi";
 import { IoEyeOutline } from "react-icons/io5";
-
+import "./ProductCard.css";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 function ProductCard({ product, big }) {

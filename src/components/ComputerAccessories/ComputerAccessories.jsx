@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // Link tegi bilan o'zgartirildi
+import { Link } from "react-router-dom";
 import { getProducts } from "../../api/productApi";
 import ProductCard from "../ProductCard/ProductCard";
+import { useQuickView } from "../context/QuickViewContext"; // 1. QuickView import
 import "./ComputerAccessories.css";
 
 const tabs = ["All Product", "beauty", "fragrances", "skin-care"];
@@ -10,7 +11,9 @@ function ComputerAccessories() {
   const [products, setProducts] = useState([]);
   const [activeTab, setActiveTab] = useState("All Product");
   const [loading, setLoading] = useState(true);
-  const [bannerProduct, setBannerProduct] = useState(null); // Banner uchun mahsulot
+  const [bannerProduct, setBannerProduct] = useState(null);
+
+  const { openQuickView } = useQuickView(); // 2. Hook'dan openQuickView olish
 
   useEffect(() => {
     getProducts()
@@ -18,7 +21,6 @@ function ComputerAccessories() {
         const list = Array.isArray(data) ? data : data.products || [];
         setProducts(list);
 
-        // Beauty kategoriyasidagi 1-mahsulotni banner uchun ajratib olamiz
         const beautyItem = list.find((item) => item.category === "beauty");
         if (beautyItem) {
           setBannerProduct(beautyItem);
@@ -41,7 +43,6 @@ function ComputerAccessories() {
           .slice(0, 8)
       : products.filter((item) => item.category === activeTab).slice(0, 8);
 
-  // Banner uchun rasm (Backend'dan keladi yoki zaxira rasm olinadi)
   const bannerImgSrc =
     bannerProduct?.images?.[0] ||
     bannerProduct?.thumbnail ||
@@ -89,9 +90,9 @@ function ComputerAccessories() {
         </div>
 
         <div className="comp-banners">
+          {/* 1-BANNER (Yellow) */}
           <div className="side-banner yellow-banner">
             <div className="side-banner-img">
-              {/* BACKENDDAN KELGAN DINAMIK RASM */}
               <img
                 src={bannerImgSrc}
                 alt={bannerProduct?.title || "Beauty Product"}
@@ -117,11 +118,17 @@ function ComputerAccessories() {
               </div>
             </div>
 
-            <Link to="/shop" className="side-banner-btn orange-btn">
+            {/* SHOP NOW bosilganda birinchi banner mahsulotining QuickView'i ochiladi */}
+            <button
+              type="button"
+              className="side-banner-btn orange-btn"
+              onClick={() => bannerProduct && openQuickView(bannerProduct)}
+            >
               SHOP NOW <span>→</span>
-            </Link>
+            </button>
           </div>
 
+          {/* 2-BANNER (Dark Blue) */}
           <div className="side-banner darkblue-banner">
             <span className="summer-badge">SUMMER SALES</span>
 
@@ -131,9 +138,17 @@ function ComputerAccessories() {
               only for <span className="highlight-yellow">Beauty</span> product.
             </p>
 
-            <Link to="/shop" className="side-banner-btn blue-btn">
+            {/* SHOP NOW bosilganda mavjud mahsulotlar orasidan biri ochiladi */}
+            <button
+              type="button"
+              className="side-banner-btn blue-btn"
+              onClick={() =>
+                displayedProducts.length > 0 &&
+                openQuickView(displayedProducts[0])
+              }
+            >
               SHOP NOW <span>→</span>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

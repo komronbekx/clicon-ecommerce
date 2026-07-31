@@ -97,7 +97,7 @@ function CustomerSupport() {
         <h2>What can we assist you with today?</h2>
         <div className="categories-grid">
           {categories.map((cat) => (
-            <Link to={cat.path} key={cat.id} className="category-card">
+            <Link to={cat.path} key={cat.id} className="category1-card">
               <span className="cat-icon">{cat.icon}</span>
               <span className="cat-title">{cat.title}</span>
             </Link>

@@ -99,7 +99,7 @@ function Footer() {
             <h4 className="footer-title">QUICK LINKS</h4>
             <ul className="footer-links">
               <li>
-                <a href="#/shop">Shop Product</a>
+                <a href="/shop">Shop Product</a>
               </li>
               <li>
                 <a href="/cart">Shoping Cart</a>
@@ -114,7 +114,7 @@ function Footer() {
                 <a href="/track-order">Track Order</a>
               </li>
               <li>
-                <a href="/coming-soon">Customer Help</a>
+                <a href="/customer-support">Customer Help</a>
               </li>
               <li>
                 <a href="/coming-soon">About Us</a>
@@ -149,7 +149,7 @@ function Footer() {
               {popularTags.map((tag, index) => (
                 <span
                   key={index}
-                  className={`tag-item ${tag === "Graphics Card" ? "active-tag" : ""}`}
+                  className={`tag-item ${tag === "" ? "active-tag" : ""}`}
                 >
                   {tag}
                 </span>

@@ -40,11 +40,15 @@
 }
 
 .slide-content h1 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 56px;
   color: #191c1f;
   margin-bottom: 20px;
+  white-space: nowrap;        /* Matnni pastki qatorga tushirmaydi */
+  overflow: hidden;           /* Siqmagan qismini yashiradi */
+  text-overflow: ellipsis;    /* Sig'may qolgan matn oxiriga "..." qo'yadi */
+  max-width: 100%;
 }
 
 .slide-content p {
@@ -52,6 +56,14 @@
   line-height: 28px;
   color: #5f6c72;
   margin-bottom: 30px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* Aniq 2 qator bilan cheklaydi */
+  -webkit-box-orient: vertical;
+  overflow: hidden;           /* 2 qatordan ortiqcha matnni yashiradi */
+  text-overflow: ellipsis;    /* Aniq 2-qator oxiriga "..." qo'yadi */
+  line-height: 1.5;           /* Qatorlar orasidagi masofa */
+  max-height: calc(1.5em * 2); /* Balandlikni 2 qatorga moslaydi */
 }
 
 .shop-btn {
