@@ -52,12 +52,6 @@ function Categories() {
     loadCategoriesData();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="categories-loading">Kategoriyalar yuklanmoqda...</div>
-    );
-  }
-
   return (
     <section className="categories-section">
       <div className="container">
